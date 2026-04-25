@@ -1,0 +1,2022 @@
+mohit@Mohits-MacBook-Pro ~ % cd insta-followers-updater
+nano save_session.py
+cd: no such file or directory: insta-followers-updater
+mohit@Mohits-MacBook-Pro ~ % python3 save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro ~ % 
+/Users/mohit/Desktop/insta-followers-updater 
+zsh: permission denied: /Users/mohit/Desktop/insta-followers-updater
+mohit@Mohits-MacBook-Pro ~ % cd 
+/Users/mohit/Desktop/insta-followers-updater
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+save_session.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano .env
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % ls
+ig_state.json		service_account.json
+save_session.py		update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro insta-followers-updater % ls
+ig_state.json		service_account.json
+save_session.py		update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+update_followers.py
+  File 
+"/Users/mohit/Desktop/insta-followers-updater/update_followers.py", 
+line 113
+    ws.update(f"D{i}", [[datetime.now().strftime("%Y-%m-%d 
+                                                 ^
+SyntaxError: unterminated string literal (detected at line 113)
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+update_followers.py
+
+  UW PICO 5.09                   File: update_followers.py           
+           
+
+    for selector in selectors:
+        try:
+            locator = page.locator(selector).first
+            if locator.count() > 0:
+                title = locator.get_attribute("title")
+                text = title or locator.inner_text()
+                value = parse_count(text)
+                if value is not None:
+                    return value
+        except Exception:
+            pass
+        
+    try:
+        body_text = page.locator("body").inner_text().lower()
+        match = re.search(r"([\d.,]+[kmb]?)\s+followers", body_text)
+        if match:
+            return parse_count(match.group(1))
+    except Exception:
+        pass
+
+^G Get Help  ^O WriteOut  ^R Read File ^Y Prev Pg   ^K Cut Text  ^C 
+Cur Pos   
+^X Exit      ^J Justify   ^W Where is  ^V Next Pg   ^U UnCut Text^T 
+To Spell  
+Last login: Tue Apr 21 01:10:00 on ttys000
+mohit@Mohits-MacBook-Pro ~ % cd insta-followers-updater
+nano save_session.py
+cd: no such file or directory: insta-followers-updater
+mohit@Mohits-MacBook-Pro ~ % python3 save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro ~ % 
+/Users/mohit/Desktop/insta-followers-updater 
+zsh: permission denied: /Users/mohit/Desktop/insta-followers-updater
+mohit@Mohits-MacBook-Pro ~ % cd 
+/Users/mohit/Desktop/insta-followers-updater
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+save_session.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano .env
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % ls
+ig_state.json		service_account.json
+save_session.py		update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro insta-followers-updater % ls
+ig_state.json		service_account.json
+save_session.py		update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+update_followers.py
+  File 
+"/Users/mohit/Desktop/insta-followers-updater/update_followers.py", 
+line 113
+    ws.update(f"D{i}", [[datetime.now().strftime("%Y-%m-%d 
+                                                 ^
+SyntaxError: unterminated string literal (detected at line 113)
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+update_followers.py
+
+  UW PICO 5.09                   File: update_followers.py           
+           
+
+    for selector in selectors:
+        try:
+            locator = page.locator(selector).first
+            if locator.count() > 0:
+                title = locator.get_attribute("title")
+                text = title or locator.inner_text()
+                value = parse_count(text)
+                if value is not None:
+                    return value
+        except Exception:
+            pass
+        
+    try:
+        body_text = page.locator("body").inner_text().lower()
+        match = re.search(r"([\d.,]+[kmb]?)\s+followers", body_text)
+        if match:
+            return parse_count(match.group(1))
+    except Exception:
+        pass
+
+^G Get Help  ^O WriteOut  ^R Read File ^Y Prev Pg   ^K Cut Text  ^C 
+Cur Pos   
+^X Exit      ^J Justify   ^W Where is  ^V Next Pg   ^U UnCut Text^T 
+To Spell  
+Last login: Tue Apr 21 01:10:00 on ttys000
+mohit@Mohits-MacBook-Pro ~ % cd insta-followers-updater
+nano save_session.py
+cd: no such file or directory: insta-followers-updater
+mohit@Mohits-MacBook-Pro ~ % python3 save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro ~ % 
+/Users/mohit/Desktop/insta-followers-updater 
+zsh: permission denied: /Users/mohit/Desktop/insta-followers-updater
+mohit@Mohits-MacBook-Pro ~ % cd 
+/Users/mohit/Desktop/insta-followers-updater
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+save_session.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano .env
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % ls
+ig_state.json		service_account.json
+save_session.py		update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro insta-followers-updater % ls
+ig_state.json		service_account.json
+save_session.py		update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+update_followers.py
+  File 
+"/Users/mohit/Desktop/insta-followers-updater/update_followers.py", 
+line 113
+    ws.update(f"D{i}", [[datetime.now().strftime("%Y-%m-%d 
+                                                 ^
+SyntaxError: unterminated string literal (detected at line 113)
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+update_followers.py
+
+  UW PICO 5.09                   File: update_followers.py           
+           
+
+    for selector in selectors:
+        try:
+            locator = page.locator(selector).first
+            if locator.count() > 0:
+                title = locator.get_attribute("title")
+                text = title or locator.inner_text()
+                value = parse_count(text)
+                if value is not None:
+                    return value
+        except Exception:
+            pass
+        
+    try:
+        body_text = page.locator("body").inner_text().lower()
+        match = re.search(r"([\d.,]+[kmb]?)\s+followers", body_text)
+        if match:
+            return parse_count(match.group(1))
+    except Exception:
+        pass
+
+^G Get Help  ^O WriteOut  ^R Read File ^Y Prev Pg   ^K Cut Text  ^C 
+Cur Pos   
+^X Exit      ^J Justify   ^W Where is  ^V Next Pg   ^U UnCut Text^T 
+To Spell  
+Last login: Tue Apr 21 01:10:00 on ttys000
+mohit@Mohits-MacBook-Pro ~ % cd insta-followers-updater
+nano save_session.py
+cd: no such file or directory: insta-followers-updater
+mohit@Mohits-MacBook-Pro ~ % python3 save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro ~ % 
+/Users/mohit/Desktop/insta-followers-updater 
+zsh: permission denied: /Users/mohit/Desktop/insta-followers-updater
+mohit@Mohits-MacBook-Pro ~ % cd 
+/Users/mohit/Desktop/insta-followers-updater
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+save_session.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano .env
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % ls
+ig_state.json		service_account.json
+save_session.py		update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro insta-followers-updater % ls
+ig_state.json		service_account.json
+save_session.py		update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+update_followers.py
+  File 
+"/Users/mohit/Desktop/insta-followers-updater/update_followers.py", 
+line 113
+    ws.update(f"D{i}", [[datetime.now().strftime("%Y-%m-%d 
+                                                 ^
+SyntaxError: unterminated string literal (detected at line 113)
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+update_followers.py
+
+  UW PICO 5.09                   File: update_followers.py           
+           
+
+    for selector in selectors:
+        try:
+            locator = page.locator(selector).first
+            if locator.count() > 0:
+                title = locator.get_attribute("title")
+                text = title or locator.inner_text()
+                value = parse_count(text)
+                if value is not None:
+                    return value
+        except Exception:
+            pass
+        
+    try:
+        body_text = page.locator("body").inner_text().lower()
+        match = re.search(r"([\d.,]+[kmb]?)\s+followers", body_text)
+        if match:
+            return parse_count(match.group(1))
+    except Exception:
+        pass
+
+^G Get Help  ^O WriteOut  ^R Read File ^Y Prev Pg   ^K Cut Text  ^C 
+Cur Pos   
+^X Exit      ^J Justify   ^W Where is  ^V Next Pg   ^U UnCut Text^T 
+To Spell  
+Last login: Tue Apr 21 01:10:00 on ttys000
+mohit@Mohits-MacBook-Pro ~ % cd insta-followers-updater
+nano save_session.py
+cd: no such file or directory: insta-followers-updater
+mohit@Mohits-MacBook-Pro ~ % python3 save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro ~ % 
+/Users/mohit/Desktop/insta-followers-updater 
+zsh: permission denied: /Users/mohit/Desktop/insta-followers-updater
+mohit@Mohits-MacBook-Pro ~ % cd 
+/Users/mohit/Desktop/insta-followers-updater
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+save_session.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano .env
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % ls
+ig_state.json		service_account.json
+save_session.py		update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro insta-followers-updater % ls
+ig_state.json		service_account.json
+save_session.py		update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+update_followers.py
+  File 
+"/Users/mohit/Desktop/insta-followers-updater/update_followers.py", 
+line 113
+    ws.update(f"D{i}", [[datetime.now().strftime("%Y-%m-%d 
+                                                 ^
+SyntaxError: unterminated string literal (detected at line 113)
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+update_followers.py
+
+  UW PICO 5.09                   File: update_followers.py           
+           
+
+    for selector in selectors:
+        try:
+            locator = page.locator(selector).first
+            if locator.count() > 0:
+                title = locator.get_attribute("title")
+                text = title or locator.inner_text()
+                value = parse_count(text)
+                if value is not None:
+                    return value
+        except Exception:
+            pass
+        
+    try:
+        body_text = page.locator("body").inner_text().lower()
+        match = re.search(r"([\d.,]+[kmb]?)\s+followers", body_text)
+        if match:
+            return parse_count(match.group(1))
+    except Exception:
+        pass
+
+^G Get Help  ^O WriteOut  ^R Read File ^Y Prev Pg   ^K Cut Text  ^C 
+Cur Pos   
+^X Exit      ^J Justify   ^W Where is  ^V Next Pg   ^U UnCut Text^T 
+To Spell  
+Last login: Tue Apr 21 01:10:00 on ttys000
+mohit@Mohits-MacBook-Pro ~ % cd insta-followers-updater
+nano save_session.py
+cd: no such file or directory: insta-followers-updater
+mohit@Mohits-MacBook-Pro ~ % python3 save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro ~ % 
+/Users/mohit/Desktop/insta-followers-updater 
+zsh: permission denied: /Users/mohit/Desktop/insta-followers-updater
+mohit@Mohits-MacBook-Pro ~ % cd 
+/Users/mohit/Desktop/insta-followers-updater
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+save_session.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano .env
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % ls
+ig_state.json		service_account.json
+save_session.py		update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro insta-followers-updater % ls
+ig_state.json		service_account.json
+save_session.py		update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+update_followers.py
+  File 
+"/Users/mohit/Desktop/insta-followers-updater/update_followers.py", 
+line 113
+    ws.update(f"D{i}", [[datetime.now().strftime("%Y-%m-%d 
+                                                 ^
+SyntaxError: unterminated string literal (detected at line 113)
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+update_followers.py
+
+  UW PICO 5.09                   File: update_followers.py           
+           
+
+    for selector in selectors:
+        try:
+            locator = page.locator(selector).first
+            if locator.count() > 0:
+                title = locator.get_attribute("title")
+                text = title or locator.inner_text()
+                value = parse_count(text)
+                if value is not None:
+                    return value
+        except Exception:
+            pass
+        
+    try:
+        body_text = page.locator("body").inner_text().lower()
+        match = re.search(r"([\d.,]+[kmb]?)\s+followers", body_text)
+        if match:
+            return parse_count(match.group(1))
+    except Exception:
+        pass
+
+^G Get Help  ^O WriteOut  ^R Read File ^Y Prev Pg   ^K Cut Text  ^C 
+Cur Pos   
+^X Exit      ^J Justify   ^W Where is  ^V Next Pg   ^U UnCut Text^T 
+To Spell  
+Last login: Tue Apr 21 01:10:00 on ttys000
+mohit@Mohits-MacBook-Pro ~ % cd insta-followers-updater
+nano save_session.py
+cd: no such file or directory: insta-followers-updater
+mohit@Mohits-MacBook-Pro ~ % python3 save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro ~ % 
+/Users/mohit/Desktop/insta-followers-updater 
+zsh: permission denied: /Users/mohit/Desktop/insta-followers-updater
+mohit@Mohits-MacBook-Pro ~ % cd 
+/Users/mohit/Desktop/insta-followers-updater
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+save_session.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano .env
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % ls
+ig_state.json		service_account.json
+save_session.py		update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro insta-followers-updater % ls
+ig_state.json		service_account.json
+save_session.py		update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+update_followers.py
+  File 
+"/Users/mohit/Desktop/insta-followers-updater/update_followers.py", 
+line 113
+    ws.update(f"D{i}", [[datetime.now().strftime("%Y-%m-%d 
+                                                 ^
+SyntaxError: unterminated string literal (detected at line 113)
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+update_followers.py
+
+  UW PICO 5.09                   File: update_followers.py           
+           
+
+    for selector in selectors:
+        try:
+            locator = page.locator(selector).first
+            if locator.count() > 0:
+                title = locator.get_attribute("title")
+                text = title or locator.inner_text()
+                value = parse_count(text)
+                if value is not None:
+                    return value
+        except Exception:
+            pass
+        
+    try:
+        body_text = page.locator("body").inner_text().lower()
+        match = re.search(r"([\d.,]+[kmb]?)\s+followers", body_text)
+        if match:
+            return parse_count(match.group(1))
+    except Exception:
+        pass
+
+^G Get Help  ^O WriteOut  ^R Read File ^Y Prev Pg   ^K Cut Text  ^C 
+Cur Pos   
+^X Exit      ^J Justify   ^W Where is  ^V Next Pg   ^U UnCut Text^T 
+To Spell  
+Last login: Tue Apr 21 01:10:00 on ttys000
+mohit@Mohits-MacBook-Pro ~ % cd insta-followers-updater
+nano save_session.py
+cd: no such file or directory: insta-followers-updater
+mohit@Mohits-MacBook-Pro ~ % python3 save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro ~ % 
+/Users/mohit/Desktop/insta-followers-updater 
+zsh: permission denied: /Users/mohit/Desktop/insta-followers-updater
+mohit@Mohits-MacBook-Pro ~ % cd 
+/Users/mohit/Desktop/insta-followers-updater
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+save_session.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano .env
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % ls
+ig_state.json		service_account.json
+save_session.py		update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro insta-followers-updater % ls
+ig_state.json		service_account.json
+save_session.py		update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+update_followers.py
+  File 
+"/Users/mohit/Desktop/insta-followers-updater/update_followers.py", 
+line 113
+    ws.update(f"D{i}", [[datetime.now().strftime("%Y-%m-%d 
+                                                 ^
+SyntaxError: unterminated string literal (detected at line 113)
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+update_followers.py
+
+  UW PICO 5.09                   File: update_followers.py           
+           
+
+    for selector in selectors:
+        try:
+            locator = page.locator(selector).first
+            if locator.count() > 0:
+                title = locator.get_attribute("title")
+                text = title or locator.inner_text()
+                value = parse_count(text)
+                if value is not None:
+                    return value
+        except Exception:
+            pass
+        
+    try:
+        body_text = page.locator("body").inner_text().lower()
+        match = re.search(r"([\d.,]+[kmb]?)\s+followers", body_text)
+        if match:
+            return parse_count(match.group(1))
+    except Exception:
+        pass
+
+^G Get Help  ^O WriteOut  ^R Read File ^Y Prev Pg   ^K Cut Text  ^C 
+Cur Pos   
+^X Exit      ^J Justify   ^W Where is  ^V Next Pg   ^U UnCut Text^T 
+To Spell  
+Last login: Tue Apr 21 01:10:00 on ttys000
+mohit@Mohits-MacBook-Pro ~ % cd insta-followers-updater
+nano save_session.py
+cd: no such file or directory: insta-followers-updater
+mohit@Mohits-MacBook-Pro ~ % python3 save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro ~ % 
+/Users/mohit/Desktop/insta-followers-updater 
+zsh: permission denied: /Users/mohit/Desktop/insta-followers-updater
+mohit@Mohits-MacBook-Pro ~ % cd 
+/Users/mohit/Desktop/insta-followers-updater
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+save_session.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano .env
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % ls
+ig_state.json		service_account.json
+save_session.py		update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro insta-followers-updater % ls
+ig_state.json		service_account.json
+save_session.py		update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+update_followers.py
+  File 
+"/Users/mohit/Desktop/insta-followers-updater/update_followers.py", 
+line 113
+    ws.update(f"D{i}", [[datetime.now().strftime("%Y-%m-%d 
+                                                 ^
+SyntaxError: unterminated string literal (detected at line 113)
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+update_followers.py
+
+  UW PICO 5.09                   File: update_followers.py           
+           
+
+    for selector in selectors:
+        try:
+            locator = page.locator(selector).first
+            if locator.count() > 0:
+                title = locator.get_attribute("title")
+                text = title or locator.inner_text()
+                value = parse_count(text)
+                if value is not None:
+                    return value
+        except Exception:
+            pass
+        
+    try:
+        body_text = page.locator("body").inner_text().lower()
+        match = re.search(r"([\d.,]+[kmb]?)\s+followers", body_text)
+        if match:
+            return parse_count(match.group(1))
+    except Exception:
+        pass
+
+^G Get Help  ^O WriteOut  ^R Read File ^Y Prev Pg   ^K Cut Text  ^C 
+Cur Pos   
+^X Exit      ^J Justify   ^W Where is  ^V Next Pg   ^U UnCut Text^T 
+To Spell  
+Last login: Tue Apr 21 01:10:00 on ttys000
+mohit@Mohits-MacBook-Pro ~ % cd insta-followers-updater
+nano save_session.py
+cd: no such file or directory: insta-followers-updater
+mohit@Mohits-MacBook-Pro ~ % python3 save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro ~ % 
+/Users/mohit/Desktop/insta-followers-updater 
+zsh: permission denied: /Users/mohit/Desktop/insta-followers-updater
+mohit@Mohits-MacBook-Pro ~ % cd 
+/Users/mohit/Desktop/insta-followers-updater
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+save_session.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano .env
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % ls
+ig_state.json		service_account.json
+save_session.py		update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro insta-followers-updater % ls
+ig_state.json		service_account.json
+save_session.py		update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+update_followers.py
+  File 
+"/Users/mohit/Desktop/insta-followers-updater/update_followers.py", 
+line 113
+    ws.update(f"D{i}", [[datetime.now().strftime("%Y-%m-%d 
+                                                 ^
+SyntaxError: unterminated string literal (detected at line 113)
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+update_followers.py
+
+  UW PICO 5.09                   File: update_followers.py           
+           
+
+    for selector in selectors:
+        try:
+            locator = page.locator(selector).first
+            if locator.count() > 0:
+                title = locator.get_attribute("title")
+                text = title or locator.inner_text()
+                value = parse_count(text)
+                if value is not None:
+                    return value
+        except Exception:
+            pass
+        
+    try:
+        body_text = page.locator("body").inner_text().lower()
+        match = re.search(r"([\d.,]+[kmb]?)\s+followers", body_text)
+        if match:
+            return parse_count(match.group(1))
+    except Exception:
+        pass
+
+^G Get Help  ^O WriteOut  ^R Read File ^Y Prev Pg   ^K Cut Text  ^C 
+Cur Pos   
+^X Exit      ^J Justify   ^W Where is  ^V Next Pg   ^U UnCut Text^T 
+To Spell  
+Last login: Tue Apr 21 01:10:00 on ttys000
+mohit@Mohits-MacBook-Pro ~ % cd insta-followers-updater
+nano save_session.py
+cd: no such file or directory: insta-followers-updater
+mohit@Mohits-MacBook-Pro ~ % python3 save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro ~ % 
+/Users/mohit/Desktop/insta-followers-updater 
+zsh: permission denied: /Users/mohit/Desktop/insta-followers-updater
+mohit@Mohits-MacBook-Pro ~ % cd 
+/Users/mohit/Desktop/insta-followers-updater
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+save_session.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano .env
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % ls
+ig_state.json		service_account.json
+save_session.py		update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro insta-followers-updater % ls
+ig_state.json		service_account.json
+save_session.py		update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+update_followers.py
+  File 
+"/Users/mohit/Desktop/insta-followers-updater/update_followers.py", 
+line 113
+    ws.update(f"D{i}", [[datetime.now().strftime("%Y-%m-%d 
+                                                 ^
+SyntaxError: unterminated string literal (detected at line 113)
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+update_followers.py
+
+  UW PICO 5.09                   File: update_followers.py           
+           
+
+    for selector in selectors:
+        try:
+            locator = page.locator(selector).first
+            if locator.count() > 0:
+                title = locator.get_attribute("title")
+                text = title or locator.inner_text()
+                value = parse_count(text)
+                if value is not None:
+                    return value
+        except Exception:
+            pass
+        
+    try:
+        body_text = page.locator("body").inner_text().lower()
+        match = re.search(r"([\d.,]+[kmb]?)\s+followers", body_text)
+        if match:
+            return parse_count(match.group(1))
+    except Exception:
+        pass
+
+^G Get Help  ^O WriteOut  ^R Read File ^Y Prev Pg   ^K Cut Text  ^C 
+Cur Pos   
+^X Exit      ^J Justify   ^W Where is  ^V Next Pg   ^U UnCut Text^T 
+To Spell  
+Last login: Tue Apr 21 01:10:00 on ttys000
+mohit@Mohits-MacBook-Pro ~ % cd insta-followers-updater
+nano save_session.py
+cd: no such file or directory: insta-followers-updater
+mohit@Mohits-MacBook-Pro ~ % python3 save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro ~ % 
+/Users/mohit/Desktop/insta-followers-updater 
+zsh: permission denied: /Users/mohit/Desktop/insta-followers-updater
+mohit@Mohits-MacBook-Pro ~ % cd 
+/Users/mohit/Desktop/insta-followers-updater
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+save_session.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano .env
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % ls
+ig_state.json		service_account.json
+save_session.py		update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro insta-followers-updater % ls
+ig_state.json		service_account.json
+save_session.py		update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+update_followers.py
+  File 
+"/Users/mohit/Desktop/insta-followers-updater/update_followers.py", 
+line 113
+    ws.update(f"D{i}", [[datetime.now().strftime("%Y-%m-%d 
+                                                 ^
+SyntaxError: unterminated string literal (detected at line 113)
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+update_followers.py
+
+  UW PICO 5.09                   File: update_followers.py           
+           
+
+    for selector in selectors:
+        try:
+            locator = page.locator(selector).first
+            if locator.count() > 0:
+                title = locator.get_attribute("title")
+                text = title or locator.inner_text()
+                value = parse_count(text)
+                if value is not None:
+                    return value
+        except Exception:
+            pass
+        
+    try:
+        body_text = page.locator("body").inner_text().lower()
+        match = re.search(r"([\d.,]+[kmb]?)\s+followers", body_text)
+        if match:
+            return parse_count(match.group(1))
+    except Exception:
+        pass
+
+^G Get Help  ^O WriteOut  ^R Read File ^Y Prev Pg   ^K Cut Text  ^C 
+Cur Pos   
+^X Exit      ^J Justify   ^W Where is  ^V Next Pg   ^U UnCut Text^T 
+To Spell  
+Last login: Tue Apr 21 01:10:00 on ttys000
+mohit@Mohits-MacBook-Pro ~ % cd insta-followers-updater
+nano save_session.py
+cd: no such file or directory: insta-followers-updater
+mohit@Mohits-MacBook-Pro ~ % python3 save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro ~ % 
+/Users/mohit/Desktop/insta-followers-updater 
+zsh: permission denied: /Users/mohit/Desktop/insta-followers-updater
+mohit@Mohits-MacBook-Pro ~ % cd 
+/Users/mohit/Desktop/insta-followers-updater
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+save_session.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano .env
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % ls
+ig_state.json		service_account.json
+save_session.py		update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro insta-followers-updater % ls
+ig_state.json		service_account.json
+save_session.py		update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+update_followers.py
+  File 
+"/Users/mohit/Desktop/insta-followers-updater/update_followers.py", 
+line 113
+    ws.update(f"D{i}", [[datetime.now().strftime("%Y-%m-%d 
+                                                 ^
+SyntaxError: unterminated string literal (detected at line 113)
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+update_followers.py
+
+  UW PICO 5.09                   File: update_followers.py           
+           
+
+    for selector in selectors:
+        try:
+            locator = page.locator(selector).first
+            if locator.count() > 0:
+                title = locator.get_attribute("title")
+                text = title or locator.inner_text()
+                value = parse_count(text)
+                if value is not None:
+                    return value
+        except Exception:
+            pass
+        
+    try:
+        body_text = page.locator("body").inner_text().lower()
+        match = re.search(r"([\d.,]+[kmb]?)\s+followers", body_text)
+        if match:
+            return parse_count(match.group(1))
+    except Exception:
+        pass
+
+^G Get Help  ^O WriteOut  ^R Read File ^Y Prev Pg   ^K Cut Text  ^C 
+Cur Pos   
+^X Exit      ^J Justify   ^W Where is  ^V Next Pg   ^U UnCut Text^T 
+To Spell  
+Last login: Tue Apr 21 01:10:00 on ttys000
+mohit@Mohits-MacBook-Pro ~ % cd insta-followers-updater
+nano save_session.py
+cd: no such file or directory: insta-followers-updater
+mohit@Mohits-MacBook-Pro ~ % python3 save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro ~ % 
+/Users/mohit/Desktop/insta-followers-updater 
+zsh: permission denied: /Users/mohit/Desktop/insta-followers-updater
+mohit@Mohits-MacBook-Pro ~ % cd 
+/Users/mohit/Desktop/insta-followers-updater
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+save_session.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano .env
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % ls
+ig_state.json		service_account.json
+save_session.py		update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro insta-followers-updater % ls
+ig_state.json		service_account.json
+save_session.py		update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+update_followers.py
+  File 
+"/Users/mohit/Desktop/insta-followers-updater/update_followers.py", 
+line 113
+    ws.update(f"D{i}", [[datetime.now().strftime("%Y-%m-%d 
+                                                 ^
+SyntaxError: unterminated string literal (detected at line 113)
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+update_followers.py
+
+  UW PICO 5.09                   File: update_followers.py           
+           
+
+    for selector in selectors:
+        try:
+            locator = page.locator(selector).first
+            if locator.count() > 0:
+                title = locator.get_attribute("title")
+                text = title or locator.inner_text()
+                value = parse_count(text)
+                if value is not None:
+                    return value
+        except Exception:
+            pass
+        
+    try:
+        body_text = page.locator("body").inner_text().lower()
+        match = re.search(r"([\d.,]+[kmb]?)\s+followers", body_text)
+        if match:
+            return parse_count(match.group(1))
+    except Exception:
+        pass
+
+^G Get Help  ^O WriteOut  ^R Read File ^Y Prev Pg   ^K Cut Text  ^C 
+Cur Pos   
+^X Exit      ^J Justify   ^W Where is  ^V Next Pg   ^U UnCut Text^T 
+To Spell  
+Last login: Tue Apr 21 01:10:00 on ttys000
+mohit@Mohits-MacBook-Pro ~ % cd insta-followers-updater
+nano save_session.py
+cd: no such file or directory: insta-followers-updater
+mohit@Mohits-MacBook-Pro ~ % python3 save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro ~ % 
+/Users/mohit/Desktop/insta-followers-updater 
+zsh: permission denied: /Users/mohit/Desktop/insta-followers-updater
+mohit@Mohits-MacBook-Pro ~ % cd 
+/Users/mohit/Desktop/insta-followers-updater
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+save_session.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano .env
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % ls
+ig_state.json		service_account.json
+save_session.py		update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro insta-followers-updater % ls
+ig_state.json		service_account.json
+save_session.py		update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+update_followers.py
+  File 
+"/Users/mohit/Desktop/insta-followers-updater/update_followers.py", 
+line 113
+    ws.update(f"D{i}", [[datetime.now().strftime("%Y-%m-%d 
+                                                 ^
+SyntaxError: unterminated string literal (detected at line 113)
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+update_followers.py
+
+  UW PICO 5.09                   File: update_followers.py           
+           
+
+    for selector in selectors:
+        try:
+            locator = page.locator(selector).first
+            if locator.count() > 0:
+                title = locator.get_attribute("title")
+                text = title or locator.inner_text()
+                value = parse_count(text)
+                if value is not None:
+                    return value
+        except Exception:
+            pass
+        
+    try:
+        body_text = page.locator("body").inner_text().lower()
+        match = re.search(r"([\d.,]+[kmb]?)\s+followers", body_text)
+        if match:
+            return parse_count(match.group(1))
+    except Exception:
+        pass
+
+^G Get Help  ^O WriteOut  ^R Read File ^Y Prev Pg   ^K Cut Text  ^C 
+Cur Pos   
+^X Exit      ^J Justify   ^W Where is  ^V Next Pg   ^U UnCut Text^T 
+To Spell  
+Last login: Tue Apr 21 01:10:00 on ttys000
+mohit@Mohits-MacBook-Pro ~ % cd insta-followers-updater
+nano save_session.py
+cd: no such file or directory: insta-followers-updater
+mohit@Mohits-MacBook-Pro ~ % python3 save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro ~ % 
+/Users/mohit/Desktop/insta-followers-updater 
+zsh: permission denied: /Users/mohit/Desktop/insta-followers-updater
+mohit@Mohits-MacBook-Pro ~ % cd 
+/Users/mohit/Desktop/insta-followers-updater
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+save_session.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano .env
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % ls
+ig_state.json		service_account.json
+save_session.py		update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro insta-followers-updater % ls
+ig_state.json		service_account.json
+save_session.py		update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+update_followers.py
+  File 
+"/Users/mohit/Desktop/insta-followers-updater/update_followers.py", 
+line 113
+    ws.update(f"D{i}", [[datetime.now().strftime("%Y-%m-%d 
+                                                 ^
+SyntaxError: unterminated string literal (detected at line 113)
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+update_followers.py
+
+  UW PICO 5.09                   File: update_followers.py           
+           
+
+    for selector in selectors:
+        try:
+            locator = page.locator(selector).first
+            if locator.count() > 0:
+                title = locator.get_attribute("title")
+                text = title or locator.inner_text()
+                value = parse_count(text)
+                if value is not None:
+                    return value
+        except Exception:
+            pass
+        
+    try:
+        body_text = page.locator("body").inner_text().lower()
+        match = re.search(r"([\d.,]+[kmb]?)\s+followers", body_text)
+        if match:
+            return parse_count(match.group(1))
+    except Exception:
+        pass
+
+^G Get Help  ^O WriteOut  ^R Read File ^Y Prev Pg   ^K Cut Text  ^C 
+Cur Pos   
+^X Exit      ^J Justify   ^W Where is  ^V Next Pg   ^U UnCut Text^T 
+To Spell  
+Last login: Tue Apr 21 01:10:00 on ttys000
+mohit@Mohits-MacBook-Pro ~ % cd insta-followers-updater
+nano save_session.py
+cd: no such file or directory: insta-followers-updater
+mohit@Mohits-MacBook-Pro ~ % python3 save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro ~ % 
+/Users/mohit/Desktop/insta-followers-updater 
+zsh: permission denied: /Users/mohit/Desktop/insta-followers-updater
+mohit@Mohits-MacBook-Pro ~ % cd 
+/Users/mohit/Desktop/insta-followers-updater
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+save_session.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano .env
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % ls
+ig_state.json		service_account.json
+save_session.py		update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro insta-followers-updater % ls
+ig_state.json		service_account.json
+save_session.py		update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+update_followers.py
+  File 
+"/Users/mohit/Desktop/insta-followers-updater/update_followers.py", 
+line 113
+    ws.update(f"D{i}", [[datetime.now().strftime("%Y-%m-%d 
+                                                 ^
+SyntaxError: unterminated string literal (detected at line 113)
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+update_followers.py
+
+  UW PICO 5.09                   File: update_followers.py           
+           
+
+    for selector in selectors:
+        try:
+            locator = page.locator(selector).first
+            if locator.count() > 0:
+                title = locator.get_attribute("title")
+                text = title or locator.inner_text()
+                value = parse_count(text)
+                if value is not None:
+                    return value
+        except Exception:
+            pass
+        
+    try:
+        body_text = page.locator("body").inner_text().lower()
+        match = re.search(r"([\d.,]+[kmb]?)\s+followers", body_text)
+        if match:
+            return parse_count(match.group(1))
+    except Exception:
+        pass
+
+^G Get Help  ^O WriteOut  ^R Read File ^Y Prev Pg   ^K Cut Text  ^C 
+Cur Pos   
+^X Exit      ^J Justify   ^W Where is  ^V Next Pg   ^U UnCut Text^T 
+To Spell  
+Last login: Tue Apr 21 01:10:00 on ttys000
+mohit@Mohits-MacBook-Pro ~ % cd insta-followers-updater
+nano save_session.py
+cd: no such file or directory: insta-followers-updater
+mohit@Mohits-MacBook-Pro ~ % python3 save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro ~ % 
+/Users/mohit/Desktop/insta-followers-updater 
+zsh: permission denied: /Users/mohit/Desktop/insta-followers-updater
+mohit@Mohits-MacBook-Pro ~ % cd 
+/Users/mohit/Desktop/insta-followers-updater
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+save_session.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano .env
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % ls
+ig_state.json		service_account.json
+save_session.py		update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro insta-followers-updater % ls
+ig_state.json		service_account.json
+save_session.py		update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+update_followers.py
+  File 
+"/Users/mohit/Desktop/insta-followers-updater/update_followers.py", 
+line 113
+    ws.update(f"D{i}", [[datetime.now().strftime("%Y-%m-%d 
+                                                 ^
+SyntaxError: unterminated string literal (detected at line 113)
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+update_followers.py
+
+  UW PICO 5.09                   File: update_followers.py           
+           
+
+    for selector in selectors:
+        try:
+            locator = page.locator(selector).first
+            if locator.count() > 0:
+                title = locator.get_attribute("title")
+                text = title or locator.inner_text()
+                value = parse_count(text)
+                if value is not None:
+                    return value
+        except Exception:
+            pass
+        
+    try:
+        body_text = page.locator("body").inner_text().lower()
+        match = re.search(r"([\d.,]+[kmb]?)\s+followers", body_text)
+        if match:
+            return parse_count(match.group(1))
+    except Exception:
+        pass
+
+^G Get Help  ^O WriteOut  ^R Read File ^Y Prev Pg   ^K Cut Text  ^C 
+Cur Pos   
+^X Exit      ^J Justify   ^W Where is  ^V Next Pg   ^U UnCut Text^T 
+To Spell  
+Last login: Tue Apr 21 01:10:00 on ttys000
+mohit@Mohits-MacBook-Pro ~ % cd insta-followers-updater
+nano save_session.py
+cd: no such file or directory: insta-followers-updater
+mohit@Mohits-MacBook-Pro ~ % python3 save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro ~ % 
+/Users/mohit/Desktop/insta-followers-updater 
+zsh: permission denied: /Users/mohit/Desktop/insta-followers-updater
+mohit@Mohits-MacBook-Pro ~ % cd 
+/Users/mohit/Desktop/insta-followers-updater
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+save_session.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano .env
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % ls
+ig_state.json		service_account.json
+save_session.py		update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro insta-followers-updater % ls
+ig_state.json		service_account.json
+save_session.py		update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+update_followers.py
+  File 
+"/Users/mohit/Desktop/insta-followers-updater/update_followers.py", 
+line 113
+    ws.update(f"D{i}", [[datetime.now().strftime("%Y-%m-%d 
+                                                 ^
+SyntaxError: unterminated string literal (detected at line 113)
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+update_followers.py
+
+  UW PICO 5.09                   File: update_followers.py           
+           
+
+    for selector in selectors:
+        try:
+            locator = page.locator(selector).first
+            if locator.count() > 0:
+                title = locator.get_attribute("title")
+                text = title or locator.inner_text()
+                value = parse_count(text)
+                if value is not None:
+                    return value
+        except Exception:
+            pass
+        
+    try:
+        body_text = page.locator("body").inner_text().lower()
+        match = re.search(r"([\d.,]+[kmb]?)\s+followers", body_text)
+        if match:
+            return parse_count(match.group(1))
+    except Exception:
+        pass
+
+^G Get Help  ^O WriteOut  ^R Read File ^Y Prev Pg   ^K Cut Text  ^C 
+Cur Pos   
+^X Exit      ^J Justify   ^W Where is  ^V Next Pg   ^U UnCut Text^T 
+To Spell  
+Last login: Tue Apr 21 01:10:00 on ttys000
+mohit@Mohits-MacBook-Pro ~ % cd insta-followers-updater
+nano save_session.py
+cd: no such file or directory: insta-followers-updater
+mohit@Mohits-MacBook-Pro ~ % python3 save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro ~ % 
+/Users/mohit/Desktop/insta-followers-updater 
+zsh: permission denied: /Users/mohit/Desktop/insta-followers-updater
+mohit@Mohits-MacBook-Pro ~ % cd 
+/Users/mohit/Desktop/insta-followers-updater
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+save_session.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano .env
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % ls
+ig_state.json		service_account.json
+save_session.py		update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro insta-followers-updater % ls
+ig_state.json		service_account.json
+save_session.py		update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+update_followers.py
+  File 
+"/Users/mohit/Desktop/insta-followers-updater/update_followers.py", 
+line 113
+    ws.update(f"D{i}", [[datetime.now().strftime("%Y-%m-%d 
+                                                 ^
+SyntaxError: unterminated string literal (detected at line 113)
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+update_followers.py
+
+  UW PICO 5.09                   File: update_followers.py           
+           
+
+    for selector in selectors:
+        try:
+            locator = page.locator(selector).first
+            if locator.count() > 0:
+                title = locator.get_attribute("title")
+                text = title or locator.inner_text()
+                value = parse_count(text)
+                if value is not None:
+                    return value
+        except Exception:
+            pass
+        
+    try:
+        body_text = page.locator("body").inner_text().lower()
+        match = re.search(r"([\d.,]+[kmb]?)\s+followers", body_text)
+        if match:
+            return parse_count(match.group(1))
+    except Exception:
+        pass
+
+^G Get Help  ^O WriteOut  ^R Read File ^Y Prev Pg   ^K Cut Text  ^C 
+Cur Pos   
+^X Exit      ^J Justify   ^W Where is  ^V Next Pg   ^U UnCut Text^T 
+To Spell  
+Last login: Tue Apr 21 01:10:00 on ttys000
+mohit@Mohits-MacBook-Pro ~ % cd insta-followers-updater
+nano save_session.py
+cd: no such file or directory: insta-followers-updater
+mohit@Mohits-MacBook-Pro ~ % python3 save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro ~ % 
+/Users/mohit/Desktop/insta-followers-updater 
+zsh: permission denied: /Users/mohit/Desktop/insta-followers-updater
+mohit@Mohits-MacBook-Pro ~ % cd 
+/Users/mohit/Desktop/insta-followers-updater
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+save_session.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano .env
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % ls
+ig_state.json		service_account.json
+save_session.py		update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro insta-followers-updater % ls
+ig_state.json		service_account.json
+save_session.py		update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+update_followers.py
+  File 
+"/Users/mohit/Desktop/insta-followers-updater/update_followers.py", 
+line 113
+    ws.update(f"D{i}", [[datetime.now().strftime("%Y-%m-%d 
+                                                 ^
+SyntaxError: unterminated string literal (detected at line 113)
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+update_followers.py
+
+  UW PICO 5.09                   File: update_followers.py           
+           
+
+    for selector in selectors:
+        try:
+            locator = page.locator(selector).first
+            if locator.count() > 0:
+                title = locator.get_attribute("title")
+                text = title or locator.inner_text()
+                value = parse_count(text)
+                if value is not None:
+                    return value
+        except Exception:
+            pass
+        
+    try:
+        body_text = page.locator("body").inner_text().lower()
+        match = re.search(r"([\d.,]+[kmb]?)\s+followers", body_text)
+        if match:
+            return parse_count(match.group(1))
+    except Exception:
+        pass
+
+^G Get Help  ^O WriteOut  ^R Read File ^Y Prev Pg   ^K Cut Text  ^C 
+Cur Pos   
+^X Exit      ^J Justify   ^W Where is  ^V Next Pg   ^U UnCut Text^T 
+To Spell  
+Last login: Tue Apr 21 01:10:00 on ttys000
+mohit@Mohits-MacBook-Pro ~ % cd insta-followers-updater
+nano save_session.py
+cd: no such file or directory: insta-followers-updater
+mohit@Mohits-MacBook-Pro ~ % python3 save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro ~ % 
+/Users/mohit/Desktop/insta-followers-updater 
+zsh: permission denied: /Users/mohit/Desktop/insta-followers-updater
+mohit@Mohits-MacBook-Pro ~ % cd 
+/Users/mohit/Desktop/insta-followers-updater
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+save_session.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano .env
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % ls
+ig_state.json		service_account.json
+save_session.py		update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro insta-followers-updater % ls
+ig_state.json		service_account.json
+save_session.py		update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+update_followers.py
+  File 
+"/Users/mohit/Desktop/insta-followers-updater/update_followers.py", 
+line 113
+    ws.update(f"D{i}", [[datetime.now().strftime("%Y-%m-%d 
+                                                 ^
+SyntaxError: unterminated string literal (detected at line 113)
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+update_followers.py
+
+  UW PICO 5.09                   File: update_followers.py           
+           
+
+    for selector in selectors:
+        try:
+            locator = page.locator(selector).first
+            if locator.count() > 0:
+                title = locator.get_attribute("title")
+                text = title or locator.inner_text()
+                value = parse_count(text)
+                if value is not None:
+                    return value
+        except Exception:
+            pass
+        
+    try:
+        body_text = page.locator("body").inner_text().lower()
+        match = re.search(r"([\d.,]+[kmb]?)\s+followers", body_text)
+        if match:
+            return parse_count(match.group(1))
+    except Exception:
+        pass
+
+^G Get Help  ^O WriteOut  ^R Read File ^Y Prev Pg   ^K Cut Text  ^C 
+Cur Pos   
+^X Exit      ^J Justify   ^W Where is  ^V Next Pg   ^U UnCut Text^T 
+To Spell  
+Last login: Tue Apr 21 01:10:00 on ttys000
+mohit@Mohits-MacBook-Pro ~ % cd insta-followers-updater
+nano save_session.py
+cd: no such file or directory: insta-followers-updater
+mohit@Mohits-MacBook-Pro ~ % python3 save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro ~ % 
+/Users/mohit/Desktop/insta-followers-updater 
+zsh: permission denied: /Users/mohit/Desktop/insta-followers-updater
+mohit@Mohits-MacBook-Pro ~ % cd 
+/Users/mohit/Desktop/insta-followers-updater
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+save_session.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano .env
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % ls
+ig_state.json		service_account.json
+save_session.py		update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro insta-followers-updater % ls
+ig_state.json		service_account.json
+save_session.py		update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+update_followers.py
+  File 
+"/Users/mohit/Desktop/insta-followers-updater/update_followers.py", 
+line 113
+    ws.update(f"D{i}", [[datetime.now().strftime("%Y-%m-%d 
+                                                 ^
+SyntaxError: unterminated string literal (detected at line 113)
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+update_followers.py
+
+  UW PICO 5.09                   File: update_followers.py           
+           
+
+    for selector in selectors:
+        try:
+            locator = page.locator(selector).first
+            if locator.count() > 0:
+                title = locator.get_attribute("title")
+                text = title or locator.inner_text()
+                value = parse_count(text)
+                if value is not None:
+                    return value
+        except Exception:
+            pass
+        
+    try:
+        body_text = page.locator("body").inner_text().lower()
+        match = re.search(r"([\d.,]+[kmb]?)\s+followers", body_text)
+        if match:
+            return parse_count(match.group(1))
+    except Exception:
+        pass
+
+^G Get Help  ^O WriteOut  ^R Read File ^Y Prev Pg   ^K Cut Text  ^C 
+Cur Pos   
+^X Exit      ^J Justify   ^W Where is  ^V Next Pg   ^U UnCut Text^T 
+To Spell  
+Last login: Tue Apr 21 01:10:00 on ttys000
+mohit@Mohits-MacBook-Pro ~ % cd insta-followers-updater
+nano save_session.py
+cd: no such file or directory: insta-followers-updater
+mohit@Mohits-MacBook-Pro ~ % python3 save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro ~ % 
+/Users/mohit/Desktop/insta-followers-updater 
+zsh: permission denied: /Users/mohit/Desktop/insta-followers-updater
+mohit@Mohits-MacBook-Pro ~ % cd 
+/Users/mohit/Desktop/insta-followers-updater
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+save_session.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano .env
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % ls
+ig_state.json		service_account.json
+save_session.py		update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro insta-followers-updater % ls
+ig_state.json		service_account.json
+save_session.py		update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+update_followers.py
+  File 
+"/Users/mohit/Desktop/insta-followers-updater/update_followers.py", 
+line 113
+    ws.update(f"D{i}", [[datetime.now().strftime("%Y-%m-%d 
+                                                 ^
+SyntaxError: unterminated string literal (detected at line 113)
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+update_followers.py
+
+  UW PICO 5.09                   File: update_followers.py           
+           
+
+    for selector in selectors:
+        try:
+            locator = page.locator(selector).first
+            if locator.count() > 0:
+                title = locator.get_attribute("title")
+                text = title or locator.inner_text()
+                value = parse_count(text)
+                if value is not None:
+                    return value
+        except Exception:
+            pass
+        
+    try:
+        body_text = page.locator("body").inner_text().lower()
+        match = re.search(r"([\d.,]+[kmb]?)\s+followers", body_text)
+        if match:
+            return parse_count(match.group(1))
+    except Exception:
+        pass
+
+^G Get Help  ^O WriteOut  ^R Read File ^Y Prev Pg   ^K Cut Text  ^C 
+Cur Pos   
+^X Exit      ^J Justify   ^W Where is  ^V Next Pg   ^U UnCut Text^T 
+To Spell  
+Last login: Tue Apr 21 01:10:00 on ttys000
+mohit@Mohits-MacBook-Pro ~ % cd insta-followers-updater
+nano save_session.py
+cd: no such file or directory: insta-followers-updater
+mohit@Mohits-MacBook-Pro ~ % python3 save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro ~ % 
+/Users/mohit/Desktop/insta-followers-updater 
+zsh: permission denied: /Users/mohit/Desktop/insta-followers-updater
+mohit@Mohits-MacBook-Pro ~ % cd 
+/Users/mohit/Desktop/insta-followers-updater
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+save_session.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano .env
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % ls
+ig_state.json		service_account.json
+save_session.py		update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro insta-followers-updater % ls
+ig_state.json		service_account.json
+save_session.py		update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+update_followers.py
+  File 
+"/Users/mohit/Desktop/insta-followers-updater/update_followers.py", 
+line 113
+    ws.update(f"D{i}", [[datetime.now().strftime("%Y-%m-%d 
+                                                 ^
+SyntaxError: unterminated string literal (detected at line 113)
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+update_followers.py
+
+  UW PICO 5.09                   File: update_followers.py           
+           
+
+    for selector in selectors:
+        try:
+            locator = page.locator(selector).first
+            if locator.count() > 0:
+                title = locator.get_attribute("title")
+                text = title or locator.inner_text()
+                value = parse_count(text)
+                if value is not None:
+                    return value
+        except Exception:
+            pass
+        
+    try:
+        body_text = page.locator("body").inner_text().lower()
+        match = re.search(r"([\d.,]+[kmb]?)\s+followers", body_text)
+        if match:
+            return parse_count(match.group(1))
+    except Exception:
+        pass
+
+^G Get Help  ^O WriteOut  ^R Read File ^Y Prev Pg   ^K Cut Text  ^C 
+Cur Pos   
+^X Exit      ^J Justify   ^W Where is  ^V Next Pg   ^U UnCut Text^T 
+To Spell  
+Last login: Tue Apr 21 01:10:00 on ttys000
+mohit@Mohits-MacBook-Pro ~ % cd insta-followers-updater
+nano save_session.py
+cd: no such file or directory: insta-followers-updater
+mohit@Mohits-MacBook-Pro ~ % python3 save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro ~ % 
+/Users/mohit/Desktop/insta-followers-updater 
+zsh: permission denied: /Users/mohit/Desktop/insta-followers-updater
+mohit@Mohits-MacBook-Pro ~ % cd 
+/Users/mohit/Desktop/insta-followers-updater
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+save_session.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % python3 
+save_session.py
+Log in manually, then press Enter here...
+
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano .env
+mohit@Mohits-MacBook-Pro insta-followers-updater % nano 
+update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % ls
+ig_state.json		service_account.json
+save_session.py		update_followers.py
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+mohit@Mohits-MacBook-Pro insta-followers-updater % 
+import os
+import re
+from datetime import datetime
+
+import gspread
+from dotenv import load_dotenv
+from google.oauth2.service_account import Credentials
+from playwright.sync_api import sync_playwright
+
+load_dotenv()
+
+SERVICE_FILE = "service_account.json"
+STATE_FILE = "ig_state.json"
+SHEET_URL = os.getenv("GOOGLE_SHEET_URL")
+WORKSHEET_NAME = os.getenv("WORKSHEET_NAME", "Sheet1")
+
+SCOPES = [
+    "https://www.googleapis.com/auth/spreadsheets",
+    "https://www.googleapis.com/auth/drive",
+]
+
+
+def parse_count(text: str):
+    text = text.lower().replace(",", "").strip()
+    match = re.search(r"([\d.]+)\s*([kmb]?)", text)
+    if not match:
+        return None
+
+    num = float(match.group(1))
+    suffix = match.group(2)
+
+    if suffix == "k":
+        num *= 1_000
+    elif suffix == "m":
+        num *= 1_000_000
+    elif suffix == "b":
+        num *= 1_000_000_000
+
+    return int(num)
+
+
+def get_sheet():
+    creds = Credentials.from_service_account_file(SERVICE_FILE, 
+scopes=SCOPES)
+    gc = gspread.authorize(creds)
+    sh = gc.open_by_url(SHEET_URL)
+    return sh.worksheet(WORKSHEET_NAME)
+
+
+def fetch_followers(page, profile_url: str):
+    page.goto(profile_url, wait_until="domcontentloaded", timeout=60000)
+    page.wait_for_timeout(3000)
+
+    selectors = [
+        'a[href$="/followers/"] span[title]',
+        'header section ul li:nth-child(2) span[title]',
+        'header section ul li:nth-child(2) a span[title]',
+        'header section ul li:nth-child(2) span',
+    ]
+
+    for selector in selectors:
+        try:
+            locator = page.locator(selector).first
+            if locator.count() > 0:
+                title = locator.get_attribute("title")
+                text = title or locator.inner_text()
+                value = parse_count(text)
+                if value is not None:
+                    return value
+        except Exception:
+            pass
+
+    return None
+
+
+def main():
+    if not SHEET_URL:
+        raise ValueError("GOOGLE_SHEET_URL missing in .env")
+
+    ws = get_sheet()
+    rows = ws.get_all_values()
+
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=False)
+        context = browser.new_context(storage_state=STATE_FILE)
+        page = context.new_page()
+
+        for i, row in enumerate(rows[1:], start=2):
+            name = row[0] if len(row) > 0 else ""
+            profile_link = row[1] if len(row) > 1 else ""
+
+            if not profile_link:
+                ws.update(f"E{i}", [["No link"]])
+                continue
+
+            try:
+                followers = fetch_followers(page, profile_link)
+
+                if followers is None:
+                    ws.update(f"E{i}", [["Could not read"]])
+                    print(f"{i}: {name} -> Could not read")
+                    continue
+
+                ws.update(f"C{i}", [[followers]])
+                ws.update(f"D{i}", [[datetime.now().strftime("%Y-%m-%d 
+%H:%M:%S")]])
+                ws.update(f"E{i}", [["Done"]])
+
+                print(f"{i}: {name} -> {followers}")
+
+                page.wait_for_timeout(2500)
+
+            except Exception as e:
+                ws.update(f"E{i}", [[f"Error: {str(e)[:60]}"]])
+                print(f"{i}: {name} -> ERROR: {e}")
+
+        browser.close()
+
+
+if __name__ == "__main__":
+    main()
