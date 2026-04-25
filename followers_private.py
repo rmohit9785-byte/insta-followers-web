@@ -181,7 +181,7 @@ st.set_page_config(page_title="Instagram Followers Updater",
 page_icon="📊")
 
 st.title("🚀 Instagram Followers Updater")
-st.caption("A prototype by Mohit Rawat")
+st.caption("A prototype by Mohit Rawat | Version 2")
 
 st.write("Update Instagram followers directly in your Google Sheet")
 
