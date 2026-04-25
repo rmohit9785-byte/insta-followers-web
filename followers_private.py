@@ -4,6 +4,7 @@ from datetime import datetime
 
 import gspread
 import streamlit as st
+import json
 from google.oauth2.service_account import Credentials
 from playwright.sync_api import sync_playwright
 
@@ -66,10 +67,22 @@ def parse_count(text):
     return int(num)
 
 def get_sheet(sheet_url, worksheet_name):
-    creds = Credentials.from_service_account_file(
-        SERVICE_FILE,
-        scopes=SCOPES
-    )
+    import os
+
+    service_json = os.getenv("GOOGLE_SERVICE_ACCOUNT_JSON")
+
+    if service_json:
+        service_info = json.loads(service_json)
+        creds = Credentials.from_service_account_info(
+            service_info,
+            scopes=SCOPES
+        )
+    else:
+        creds = Credentials.from_service_account_file(
+            SERVICE_FILE,
+            scopes=SCOPES
+        )
+
     gc = gspread.authorize(creds)
     sh = gc.open_by_url(sheet_url)
     return sh.worksheet(worksheet_name)
