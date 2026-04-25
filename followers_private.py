@@ -9,7 +9,7 @@ from google.oauth2.service_account import Credentials
 from playwright.sync_api import sync_playwright
 
 # 🔐 CONFIG
-BOT_EMAIL = "insta-followers-updater@insta-followers-updater-493919.iam.gserviceaccount.com"
+BOT_EMAIL = "update-followers@insta-followers-updater-493919.iam.gserviceaccount.com"
 SERVICE_FILE = "service_account.json"
 STATE_FILE = "ig_state.json"
 DATE_FORMAT = "%Y-%m-%d %H:%M:%S"
