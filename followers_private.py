@@ -163,8 +163,7 @@ def get_sheet(sheet_url, worksheet_name):
     service_json = os.getenv("GOOGLE_SERVICE_ACCOUNT_JSON")
 
     if not service_json:
-        raise ValueError("GOOGLE_SERVICE_ACCOUNT_JSON is missing in 
-Railway variables")
+    raise ValueError("GOOGLE_SERVICE_ACCOUNT_JSON is missing in Railway variables")
 
     service_info = json.loads(service_json)
 
