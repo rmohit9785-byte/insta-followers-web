@@ -1,4 +1,4 @@
-cat > followers_private.py << 'EOF'
+
 import os
 import re
 import json
