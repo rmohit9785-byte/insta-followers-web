@@ -164,14 +164,14 @@ def get_sheet(sheet_url, worksheet_name):
     if not service_json:
     raise ValueError("GOOGLE_SERVICE_ACCOUNT_JSON is missing in Railway variables")
 
-    service_info = json.loads(service_json)
+service_info = json.loads(service_json)
 
-    creds = Credentials.from_service_account_info(
-        service_info,
-        scopes=SCOPES
-    )
+creds = Credentials.from_service_account_info(
+    service_info,
+    scopes=SCOPES
+)
 
-    gc = gspread.authorize(creds)
+gc = gspread.authorize(creds)
     sh = gc.open_by_url(sheet_url)
     return sh.worksheet(worksheet_name)
 
