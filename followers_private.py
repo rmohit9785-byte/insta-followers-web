@@ -1,3 +1,4 @@
+cat > followers_private.py << 'EOF'
 import os
 import re
 import json
@@ -9,6 +10,7 @@ import streamlit as st
 from google.oauth2.service_account import Credentials
 from playwright.sync_api import sync_playwright
 
+
 st.set_page_config(
     page_title="GrowthSheet",
     page_icon="🚀",
@@ -16,9 +18,9 @@ st.set_page_config(
 )
 
 BOT_EMAIL = "update-followers@insta-followers-updater-493919.iam.gserviceaccount.com"
-SERVICE_FILE = "service_account.json"
 STATE_FILE = "ig_state.json"
 DATE_FORMAT = "%Y-%m-%d %H:%M:%S"
+
 ACCESS_CODE = "Rawatji09876"
 APP_ACTIVE = True
 
@@ -26,6 +28,7 @@ SCOPES = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive",
 ]
+
 
 st.markdown("""
 <style>
@@ -116,8 +119,10 @@ if not APP_ACTIVE:
     st.error("🚫 Service is paused by admin.")
     st.stop()
 
+
 if "authenticated" not in st.session_state:
     st.session_state.authenticated = False
+
 
 if not st.session_state.authenticated:
     st.markdown("<div class='hero-card'>", unsafe_allow_html=True)
@@ -125,6 +130,7 @@ if not st.session_state.authenticated:
 unsafe_allow_html=True)
     st.caption("A prototype by Mohit Rawat | Version 2")
     st.write("Enter your private access code to continue.")
+
     code_input = st.text_input("Access Code", type="password")
 
     if st.button("Login"):
@@ -142,6 +148,7 @@ unsafe_allow_html=True)
 def parse_count(text):
     text = str(text).lower().replace(",", "").strip()
     match = re.search(r"([\d.]+)\s*([kmb]?)", text)
+
     if not match:
         return None
 
@@ -162,22 +169,28 @@ def get_sheet(sheet_url, worksheet_name):
     service_json = os.getenv("GOOGLE_SERVICE_ACCOUNT_JSON")
 
     if not service_json:
-    raise ValueError("GOOGLE_SERVICE_ACCOUNT_JSON is missing in Railway variables")
+        raise ValueError("GOOGLE_SERVICE_ACCOUNT_JSON is missing in Railway variables")
 
-service_info = json.loads(service_json)
+    service_info = json.loads(service_json)
 
-creds = Credentials.from_service_account_info(
-    service_info,
-    scopes=SCOPES
-)
+    creds = Credentials.from_service_account_info(
+        service_info,
+        scopes=SCOPES
+    )
 
-gc = gspread.authorize(creds)
+    gc = gspread.authorize(creds)
     sh = gc.open_by_url(sheet_url)
+
     return sh.worksheet(worksheet_name)
 
 
 def fetch_followers(page, profile_url):
-    page.goto(profile_url, wait_until="domcontentloaded", timeout=60000)
+    page.goto(
+        profile_url,
+        wait_until="domcontentloaded",
+        timeout=60000
+    )
+
     page.wait_for_timeout(3000)
 
     selectors = [
@@ -190,14 +203,27 @@ def fetch_followers(page, profile_url):
     for selector in selectors:
         try:
             loc = page.locator(selector).first
+
             if loc.count() > 0:
                 title = loc.get_attribute("title")
                 text = title or loc.inner_text()
                 value = parse_count(text)
+
                 if value is not None:
                     return value
+
         except Exception:
             pass
+
+    try:
+        body = page.locator("body").inner_text().lower()
+        match = re.search(r"([\d.,]+[kmb]?)\s+followers", body)
+
+        if match:
+            return parse_count(match.group(1))
+
+    except Exception:
+        pass
 
     return None
 
@@ -205,6 +231,7 @@ def fetch_followers(page, profile_url):
 def update_followers(sheet_url, worksheet_name):
     ws = get_sheet(sheet_url, worksheet_name)
     rows = ws.get_all_values()
+
     total = max(len(rows) - 1, 0)
 
     progress_bar = st.progress(0)
@@ -218,11 +245,13 @@ def update_followers(sheet_url, worksheet_name):
             headless=True,
             args=["--no-sandbox", "--disable-dev-shm-usage"]
         )
+
         context = browser.new_context(storage_state=STATE_FILE)
         page = context.new_page()
 
         for idx, row in enumerate(rows[1:], start=1):
             sheet_row = idx + 1
+
             name = row[0] if len(row) > 0 else ""
             link = row[1] if len(row) > 1 else ""
 
@@ -233,7 +262,7 @@ def update_followers(sheet_url, worksheet_name):
 
             if not link:
                 ws.update(f"E{sheet_row}", [["No link"]])
-                result_box.write(f"{idx}/{total} → {name} → No link")
+                result_box.write(str(idx) + "/" + str(total) + " → " + str(name) + " → No link")
                 continue
 
             try:
@@ -241,8 +270,7 @@ def update_followers(sheet_url, worksheet_name):
 
                 if followers is None:
                     ws.update(f"E{sheet_row}", [["Could not read"]])
-                    result_box.write(f"{idx}/{total} → {name} → Could 
-not read")
+                    result_box.write(str(idx) + "/" + str(total) + " → " + str(name) + " → Could not read")
                     continue
 
                 now = datetime.now().strftime(DATE_FORMAT)
@@ -251,16 +279,17 @@ not read")
                 ws.update(f"D{sheet_row}", [[now]])
                 ws.update(f"E{sheet_row}", [["Done"]])
 
-                result_box.write(f"{idx}/{total} → {name} → 
-{followers}")
+                result_box.write(str(idx) + "/" + str(total) + " → " + str(name) + " → " + str(followers))
+
                 page.wait_for_timeout(2500)
 
             except Exception as e:
                 err = str(e)[:60]
                 ws.update(f"E{sheet_row}", [[f"Error: {err}"]])
-                result_box.write(f"{idx}/{total} → {name} → Error")
+                result_box.write(str(idx) + "/" + str(total) + " → " + str(name) + " → Error: " + str(err))
 
         browser.close()
+
 
     elapsed = int(time.time() - start_time)
     minutes = elapsed // 60
@@ -274,12 +303,12 @@ st.markdown("""
     <div style="display:flex; justify-content:space-between; 
 align-items:center;">
         <div>
-            <h1 class="big-title">🚀 Instagram Followers Updater</h1>
+            <h1 class="big-title">🚀 GrowthSheet</h1>
             <p style="color:#a1a1aa;">A prototype by Mohit Rawat | Version 
 2</p>
             <h3 class="gradient-text">Automate. Track. Grow.</h3>
-            <p>Update Instagram followers directly in your Google Sheet in 
-real-time.</p>
+            <p>Update Instagram followers directly in your Google 
+Sheet.</p>
         </div>
         <div style="font-size:70px;">📊</div>
     </div>
@@ -292,42 +321,42 @@ main_col, status_col = st.columns([2, 1])
 
 with main_col:
     st.markdown("<div class='glass-card'>", unsafe_allow_html=True)
-    st.markdown("<h2><span class='step-badge'>1</span> Share your sheet 
-with bot email</h2>", unsafe_allow_html=True)
+    st.markdown("<h2><span class='step-badge'>1</span> Share your sheet with bot email</h2>", unsafe_allow_html=True)
     st.write("Share your Google Sheet with this email as **Editor**:")
     st.code(BOT_EMAIL)
-    st.markdown("<div class='info-box'>ℹ️ Make sure you give Editor access 
-to the bot email.</div>", unsafe_allow_html=True)
+    st.markdown("""
+<div class='info-box'>ℹ️ Required format: Name | Profile Link | Followers | Last Updated | Status</div>
+""", unsafe_allow_html=True)
     st.markdown("</div>", unsafe_allow_html=True)
 
     st.write("")
 
     st.markdown("<div class='glass-card'>", unsafe_allow_html=True)
-    st.markdown("<h2><span class='step-badge'>2</span> Paste your Google 
-Sheet URL</h2>", unsafe_allow_html=True)
+    st.markdown("<h2><span class='step-badge'>2</span> Paste your Google Sheet URL</h2>", unsafe_allow_html=True)
 
-    sheet_url = st.text_input("Google Sheet URL", 
-placeholder="https://docs.google.com/spreadsheets/d/...")
-    worksheet_name = st.text_input("Worksheet Name", value="Sheet1")
+    sheet_url = st.text_input(
+        "Google Sheet URL",
+        placeholder="https://docs.google.com/spreadsheets/d/..."
+    )
+
+    worksheet_name = st.text_input(
+        "Worksheet Name",
+        value="Sheet1"
+    )
 
     start_clicked = st.button("🚀 Update Followers")
-
     st.markdown("</div>", unsafe_allow_html=True)
 
 with status_col:
     st.markdown("<div class='glass-card'>", unsafe_allow_html=True)
-    st.markdown("### ✨ Live Update Status")
-    st.markdown("<div class='metric-card'><h1>0%</h1><p>Waiting to 
-start</p></div>", unsafe_allow_html=True)
+    st.markdown("### ✨ Live Status")
+    st.markdown("<div class='metric-card'><h1>Ready</h1><p>Waiting to start</p></div>", unsafe_allow_html=True)
     st.write("")
-    st.markdown("<div class='success-box'>✅ System ready</div>", 
-unsafe_allow_html=True)
+    st.markdown("<div class='success-box'>✅ System online</div>", unsafe_allow_html=True)
     st.write("")
-    st.markdown("<div class='metric-card'><b>Time Taken</b><br>--</div>", 
-unsafe_allow_html=True)
+    st.markdown("<div class='metric-card'><b>Sheet Format</b><br>5 columns required</div>", unsafe_allow_html=True)
     st.write("")
-    st.markdown("<div class='metric-card'><b>Rows 
-Updated</b><br>--</div>", unsafe_allow_html=True)
+    st.markdown("<div class='metric-card'><b>Access</b><br>Private beta</div>", unsafe_allow_html=True)
     st.markdown("</div>", unsafe_allow_html=True)
 
 if start_clicked:
@@ -337,13 +366,13 @@ if start_clicked:
         st.write("")
         st.markdown("<div class='glass-card'>", unsafe_allow_html=True)
         st.subheader("⚡ Updating now...")
+
         try:
-            total, minutes, seconds = update_followers(sheet_url, 
-worksheet_name)
-            st.success(f"✅ Completed {total} rows in {minutes} min 
-{seconds} sec")
+            total, minutes, seconds = update_followers(sheet_url, worksheet_name)
+            st.success(f"✅ Completed {total} rows in {minutes} min {seconds} sec")
         except Exception as e:
             st.error(f"Error: {e}")
+
         st.markdown("</div>", unsafe_allow_html=True)
 
 st.write("")
