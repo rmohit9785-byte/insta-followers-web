@@ -15,8 +15,7 @@ st.set_page_config(
     layout="wide"
 )
 
-BOT_EMAIL = 
-"update-followers@insta-followers-updater-493919.iam.gserviceaccount.com"
+BOT_EMAIL = "update-followers@insta-followers-updater-493919.iam.gserviceaccount.com"
 SERVICE_FILE = "service_account.json"
 STATE_FILE = "ig_state.json"
 DATE_FORMAT = "%Y-%m-%d %H:%M:%S"
