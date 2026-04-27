@@ -141,7 +141,6 @@ unsafe_allow_html=True)
         else:
             st.error("Wrong access code ❌")
 
-    st.markdown("</div>", unsafe_allow_html=True)
     st.stop()
 
 
@@ -327,7 +326,6 @@ with main_col:
     st.markdown("""
 <div class='info-box'>ℹ️ Required format: Name | Profile Link | Followers | Last Updated | Status</div>
 """, unsafe_allow_html=True)
-    st.markdown("</div>", unsafe_allow_html=True)
 
     st.write("")
 
@@ -345,7 +343,6 @@ with main_col:
     )
 
     start_clicked = st.button("🚀 Update Followers")
-    st.markdown("</div>", unsafe_allow_html=True)
 
 with status_col:
     st.markdown("<div class='glass-card'>", unsafe_allow_html=True)
@@ -357,7 +354,6 @@ with status_col:
     st.markdown("<div class='metric-card'><b>Sheet Format</b><br>5 columns required</div>", unsafe_allow_html=True)
     st.write("")
     st.markdown("<div class='metric-card'><b>Access</b><br>Private beta</div>", unsafe_allow_html=True)
-    st.markdown("</div>", unsafe_allow_html=True)
 
 if start_clicked:
     if not sheet_url:
@@ -373,7 +369,6 @@ if start_clicked:
         except Exception as e:
             st.error(f"Error: {e}")
 
-        st.markdown("</div>", unsafe_allow_html=True)
-
+    
 st.write("")
 st.caption("Made with ❤️ by Mohit Rawat | GrowthSheet")
