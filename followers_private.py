@@ -1,35 +1,26 @@
-
 import os
 import re
 import json
 import time
 from datetime import datetime
-
 import gspread
 import streamlit as st
 from google.oauth2.service_account import Credentials
 from playwright.sync_api import sync_playwright
-
-
 st.set_page_config(
     page_title="GrowthSheet",
     page_icon="🚀",
     layout="wide"
 )
-
 BOT_EMAIL = "update-followers@insta-followers-updater-493919.iam.gserviceaccount.com"
 STATE_FILE = "ig_state.json"
 DATE_FORMAT = "%Y-%m-%d %H:%M:%S"
-
 ACCESS_CODE = "Rawatji09876"
 APP_ACTIVE = True
-
 SCOPES = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive",
 ]
-
-
 st.markdown("""
 <style>
 .stApp {
@@ -44,7 +35,6 @@ st.markdown("""
     padding-top: 2rem;
     max-width: 1200px;
 }
-.hero-card {
     background: linear-gradient(135deg, rgba(30,32,55,0.95), 
 rgba(9,11,20,0.95));
     border: 1px solid rgba(139,92,246,0.35);
@@ -113,26 +103,17 @@ rgba(9,11,20,0.95));
 }
 </style>
 """, unsafe_allow_html=True)
-
-
 if not APP_ACTIVE:
     st.error("🚫 Service is paused by admin.")
     st.stop()
-
-
 if "authenticated" not in st.session_state:
     st.session_state.authenticated = False
-
-
 if not st.session_state.authenticated:
-    st.markdown("<div class='hero-card'>", unsafe_allow_html=True)
     st.markdown("<h1 class='big-title'>🔐 GrowthSheet Access</h1>", 
 unsafe_allow_html=True)
     st.caption("A prototype by Mohit Rawat | Version 2")
     st.write("Enter your private access code to continue.")
-
     code_input = st.text_input("Access Code", type="password")
-
     if st.button("Login"):
         if code_input == ACCESS_CODE:
             st.session_state.authenticated = True
@@ -140,165 +121,113 @@ unsafe_allow_html=True)
             st.rerun()
         else:
             st.error("Wrong access code ❌")
-
     st.stop()
-
-
 def parse_count(text):
     text = str(text).lower().replace(",", "").strip()
     match = re.search(r"([\d.]+)\s*([kmb]?)", text)
-
     if not match:
         return None
-
     num = float(match.group(1))
     suffix = match.group(2)
-
     if suffix == "k":
         num *= 1000
     elif suffix == "m":
         num *= 1000000
     elif suffix == "b":
         num *= 1000000000
-
     return int(num)
-
-
 def get_sheet(sheet_url, worksheet_name):
     service_json = os.getenv("GOOGLE_SERVICE_ACCOUNT_JSON")
-
     if not service_json:
         raise ValueError("GOOGLE_SERVICE_ACCOUNT_JSON is missing in Railway variables")
-
     service_info = json.loads(service_json)
-
     creds = Credentials.from_service_account_info(
         service_info,
         scopes=SCOPES
     )
-
     gc = gspread.authorize(creds)
     sh = gc.open_by_url(sheet_url)
-
     return sh.worksheet(worksheet_name)
-
-
 def fetch_followers(page, profile_url):
     page.goto(
         profile_url,
         wait_until="domcontentloaded",
         timeout=60000
     )
-
     page.wait_for_timeout(3000)
-
     selectors = [
         'a[href$="/followers/"] span[title]',
         'header section ul li:nth-child(2) span[title]',
         'header section ul li:nth-child(2) a span[title]',
         'header section ul li:nth-child(2) span',
     ]
-
     for selector in selectors:
         try:
             loc = page.locator(selector).first
-
             if loc.count() > 0:
                 title = loc.get_attribute("title")
                 text = title or loc.inner_text()
                 value = parse_count(text)
-
                 if value is not None:
                     return value
-
         except Exception:
             pass
-
     try:
         body = page.locator("body").inner_text().lower()
         match = re.search(r"([\d.,]+[kmb]?)\s+followers", body)
-
         if match:
             return parse_count(match.group(1))
-
     except Exception:
         pass
-
     return None
-
-
 def update_followers(sheet_url, worksheet_name):
     ws = get_sheet(sheet_url, worksheet_name)
     rows = ws.get_all_values()
-
     total = max(len(rows) - 1, 0)
-
     progress_bar = st.progress(0)
     status_text = st.empty()
     result_box = st.container()
-
     start_time = time.time()
-
     with sync_playwright() as p:
         browser = p.chromium.launch(
             headless=True,
             args=["--no-sandbox", "--disable-dev-shm-usage"]
         )
-
         context = browser.new_context(storage_state=STATE_FILE)
         page = context.new_page()
-
         for idx, row in enumerate(rows[1:], start=1):
             sheet_row = idx + 1
-
             name = row[0] if len(row) > 0 else ""
             link = row[1] if len(row) > 1 else ""
-
             status_text.info(f"Processing {idx} / {total} → {name}")
-
             if total > 0:
                 progress_bar.progress(idx / total)
-
             if not link:
                 ws.update(f"E{sheet_row}", [["No link"]])
                 result_box.write(str(idx) + "/" + str(total) + " → " + str(name) + " → No link")
                 continue
-
             try:
                 followers = fetch_followers(page, link)
-
                 if followers is None:
                     ws.update(f"E{sheet_row}", [["Could not read"]])
                     result_box.write(str(idx) + "/" + str(total) + " → " + str(name) + " → Could not read")
                     continue
-
                 now = datetime.now().strftime(DATE_FORMAT)
-
                 ws.update(f"C{sheet_row}", [[followers]])
                 ws.update(f"D{sheet_row}", [[now]])
                 ws.update(f"E{sheet_row}", [["Done"]])
-
                 result_box.write(str(idx) + "/" + str(total) + " → " + str(name) + " → " + str(followers))
-
                 page.wait_for_timeout(2500)
-
             except Exception as e:
                 err = str(e)[:60]
                 ws.update(f"E{sheet_row}", [[f"Error: {err}"]])
                 result_box.write(str(idx) + "/" + str(total) + " → " + str(name) + " → Error: " + str(err))
-
         browser.close()
-
-
     elapsed = int(time.time() - start_time)
     minutes = elapsed // 60
     seconds = elapsed % 60
-
     return total, minutes, seconds
-
-
 st.markdown("""
-<div class="hero-card">
     <div style="display:flex; justify-content:space-between; 
 align-items:center;">
         <div>
@@ -313,17 +242,13 @@ Sheet.</p>
     </div>
 </div>
 """, unsafe_allow_html=True)
-
 st.write("")
-
 main_col, status_col = st.columns([2, 1])
-
 with main_col:
     st.markdown("## 1️⃣ Share your sheet with bot email")
     st.write("Share your Google Sheet with this email as **Editor**:")
     st.code(BOT_EMAIL)
     st.info("Required format: Name | Profile Link | Followers | Last Updated | Status")
-
     st.markdown("## 2️⃣ Paste your Google Sheet URL")
     sheet_url = st.text_input(
         "Google Sheet URL",
@@ -331,14 +256,12 @@ with main_col:
     )
     worksheet_name = st.text_input("Worksheet Name", value="Sheet1")
     start_clicked = st.button("🚀 Update Followers")
-
 with status_col:
     st.markdown("## ✨ Live Status")
     st.success("✅ System online")
     st.metric("Current Status", "Ready")
     st.metric("Sheet Format", "5 columns")
     st.metric("Access", "Private beta")
-
 if start_clicked:
     if not sheet_url:
         st.error("Please paste your Google Sheet URL.")
@@ -349,5 +272,4 @@ if start_clicked:
             st.success(f"✅ Completed {total} rows in {minutes} min {seconds} sec")
         except Exception as e:
             st.error(f"Error: {e}")
-
 st.caption("Made with ❤️ by Mohit Rawat | GrowthSheet")
