@@ -319,56 +319,35 @@ st.write("")
 main_col, status_col = st.columns([2, 1])
 
 with main_col:
-    st.markdown("<div class='glass-card'>", unsafe_allow_html=True)
-    st.markdown("<h2><span class='step-badge'>1</span> Share your sheet with bot email</h2>", unsafe_allow_html=True)
+    st.markdown("## 1️⃣ Share your sheet with bot email")
     st.write("Share your Google Sheet with this email as **Editor**:")
     st.code(BOT_EMAIL)
-    st.markdown("""
-<div class='info-box'>ℹ️ Required format: Name | Profile Link | Followers | Last Updated | Status</div>
-""", unsafe_allow_html=True)
+    st.info("Required format: Name | Profile Link | Followers | Last Updated | Status")
 
-    st.write("")
-
-    st.markdown("<div class='glass-card'>", unsafe_allow_html=True)
-    st.markdown("<h2><span class='step-badge'>2</span> Paste your Google Sheet URL</h2>", unsafe_allow_html=True)
-
+    st.markdown("## 2️⃣ Paste your Google Sheet URL")
     sheet_url = st.text_input(
         "Google Sheet URL",
         placeholder="https://docs.google.com/spreadsheets/d/..."
     )
-
-    worksheet_name = st.text_input(
-        "Worksheet Name",
-        value="Sheet1"
-    )
-
+    worksheet_name = st.text_input("Worksheet Name", value="Sheet1")
     start_clicked = st.button("🚀 Update Followers")
 
 with status_col:
-    st.markdown("<div class='glass-card'>", unsafe_allow_html=True)
-    st.markdown("### ✨ Live Status")
-    st.markdown("<div class='metric-card'><h1>Ready</h1><p>Waiting to start</p></div>", unsafe_allow_html=True)
-    st.write("")
-    st.markdown("<div class='success-box'>✅ System online</div>", unsafe_allow_html=True)
-    st.write("")
-    st.markdown("<div class='metric-card'><b>Sheet Format</b><br>5 columns required</div>", unsafe_allow_html=True)
-    st.write("")
-    st.markdown("<div class='metric-card'><b>Access</b><br>Private beta</div>", unsafe_allow_html=True)
+    st.markdown("## ✨ Live Status")
+    st.success("✅ System online")
+    st.metric("Current Status", "Ready")
+    st.metric("Sheet Format", "5 columns")
+    st.metric("Access", "Private beta")
 
 if start_clicked:
     if not sheet_url:
         st.error("Please paste your Google Sheet URL.")
     else:
-        st.write("")
-        st.markdown("<div class='glass-card'>", unsafe_allow_html=True)
         st.subheader("⚡ Updating now...")
-
         try:
             total, minutes, seconds = update_followers(sheet_url, worksheet_name)
             st.success(f"✅ Completed {total} rows in {minutes} min {seconds} sec")
         except Exception as e:
             st.error(f"Error: {e}")
 
-    
-st.write("")
 st.caption("Made with ❤️ by Mohit Rawat | GrowthSheet")
