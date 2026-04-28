@@ -123,6 +123,25 @@ unsafe_allow_html=True)
         else:
             st.error("Wrong access code ❌")
     st.stop()
+
+def format_like_instagram(number):
+    if number is None:
+        return ""
+    try:
+        number = int(number)
+    except Exception:
+        return str(number)
+
+    if number >= 1_000_000:
+        value = round(number / 1_000_000)
+        return f"{value * 1_000_000:,}"
+    elif number >= 1_000:
+        value = round(number / 1_000)
+        return f"{value * 1_000:,}"
+    else:
+        return str(number)
+
+
 def parse_count(text):
     text = str(text).lower().replace(",", "").strip()
     match = re.search(r"([\d.]+)\s*([kmb]?)", text)
