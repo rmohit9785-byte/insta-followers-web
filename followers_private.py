@@ -211,7 +211,7 @@ def update_followers(sheet_url, worksheet_name):
     with sync_playwright() as p:
         browser = p.chromium.launch(
             headless=True,
-            args=["--no-sandbox", "--disable-dev-shm-usage", "--disable-gpu", "--single-process"]
+            args=["--no-sandbox", "--disable-dev-shm-usage", "--disable-gpu"]
         )
         context = browser.new_context(storage_state=STATE_FILE)
         page = context.new_page()
@@ -224,13 +224,30 @@ def update_followers(sheet_url, worksheet_name):
 
         page.route("**/*", block_heavy_resources)
         for idx, row in enumerate(rows[1:], start=1):
-            if idx > 1 and idx % 40 == 1:
+            try:
+                page.title()
+            except Exception:
                 try:
-                    page.close()
-                    context.close()
+                    browser.close()
                 except Exception:
                     pass
 
+                browser = p.chromium.launch(
+                    headless=True,
+                    args=["--no-sandbox", "--disable-dev-shm-usage", "--disable-gpu"]
+                )
+                context = browser.new_context(storage_state=STATE_FILE)
+                page = context.new_page()
+            if idx > 1 and idx % 35 == 1:
+                try:
+                    browser.close()
+                except Exception:
+                    pass
+
+                browser = p.chromium.launch(
+                    headless=True,
+                    args=["--no-sandbox", "--disable-dev-shm-usage", "--disable-gpu"]
+                )
                 context = browser.new_context(storage_state=STATE_FILE)
                 page = context.new_page()
 
