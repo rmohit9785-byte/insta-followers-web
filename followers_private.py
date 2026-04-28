@@ -7,6 +7,7 @@ import gspread
 import streamlit as st
 from google.oauth2.service_account import Credentials
 from playwright.sync_api import sync_playwright
+import random
 st.set_page_config(
     page_title="GrowthSheet",
     page_icon="🚀",
@@ -195,6 +196,14 @@ def update_followers(sheet_url, worksheet_name):
         )
         context = browser.new_context(storage_state=STATE_FILE)
         page = context.new_page()
+
+        def block_heavy_resources(route):
+            if route.request.resource_type in ["image", "media", "font"]:
+                route.abort()
+            else:
+                route.continue_()
+
+        page.route("**/*", block_heavy_resources)
         for idx, row in enumerate(rows[1:], start=1):
             sheet_row = idx + 1
             name = row[0] if len(row) > 0 else ""
@@ -217,7 +226,7 @@ def update_followers(sheet_url, worksheet_name):
                 ws.update(f"D{sheet_row}", [[now]])
                 ws.update(f"E{sheet_row}", [["Done"]])
                 result_box.write(str(idx) + "/" + str(total) + " → " + str(name) + " → " + str(followers))
-                page.wait_for_timeout(2500)
+                page.wait_for_timeout(random.randint(900, 1600))
             except Exception as e:
                 err = str(e)[:60]
                 ws.update(f"E{sheet_row}", [[f"Error: {err}"]])
