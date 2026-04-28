@@ -238,7 +238,7 @@ def update_followers(sheet_url, worksheet_name):
                 )
                 context = browser.new_context(storage_state=STATE_FILE)
                 page = context.new_page()
-            if idx > 1 and idx % 35 == 1:
+            if idx > 1 and idx % 50 == 1:
                 try:
                     browser.close()
                 except Exception:
@@ -276,7 +276,7 @@ def update_followers(sheet_url, worksheet_name):
                     f"C{sheet_row}:E{sheet_row}",
                     [[formatted_followers, now, "Done"]]
                 )
-                time.sleep(1)
+                time.sleep(0.4)
                 result_box.write(str(idx) + "/" + str(total) + " → " + str(name) + " → " + str(followers))
                 page.wait_for_timeout(random.randint(900, 1600))
             except Exception as e:
