@@ -213,23 +213,30 @@ def update_followers(sheet_url, worksheet_name):
                 progress_bar.progress(idx / total)
             if not link:
                 ws.update(f"E{sheet_row}", [["No link"]])
+                time.sleep(1)
                 result_box.write(str(idx) + "/" + str(total) + " → " + str(name) + " → No link")
                 continue
             try:
                 followers = fetch_followers(page, link)
                 if followers is None:
                     ws.update(f"E{sheet_row}", [["Could not read"]])
+                    time.sleep(1)
                     result_box.write(str(idx) + "/" + str(total) + " → " + str(name) + " → Could not read")
                     continue
+                formatted_followers = format_like_instagram(followers)
+
                 now = datetime.now().strftime(DATE_FORMAT)
-                ws.update(f"C{sheet_row}", [[followers]])
-                ws.update(f"D{sheet_row}", [[now]])
-                ws.update(f"E{sheet_row}", [["Done"]])
+                ws.update(
+                    f"C{sheet_row}:E{sheet_row}",
+                    [[formatted_followers, now, "Done"]]
+                )
+                time.sleep(1)
                 result_box.write(str(idx) + "/" + str(total) + " → " + str(name) + " → " + str(followers))
                 page.wait_for_timeout(random.randint(900, 1600))
             except Exception as e:
                 err = str(e)[:60]
                 ws.update(f"E{sheet_row}", [[f"Error: {err}"]])
+                time.sleep(1)
                 result_box.write(str(idx) + "/" + str(total) + " → " + str(name) + " → Error: " + str(err))
         browser.close()
     elapsed = int(time.time() - start_time)
