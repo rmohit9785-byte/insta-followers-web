@@ -169,37 +169,52 @@ def get_sheet(sheet_url, worksheet_name):
     sh = gc.open_by_url(sheet_url)
     return sh.worksheet(worksheet_name)
 def fetch_followers(page, profile_url):
-    page.goto(
-        profile_url,
-        wait_until="domcontentloaded",
-        timeout=60000
-    )
-    page.wait_for_timeout(3000)
-    selectors = [
-        'a[href$="/followers/"] span[title]',
-        'header section ul li:nth-child(2) span[title]',
-        'header section ul li:nth-child(2) a span[title]',
-        'header section ul li:nth-child(2) span',
-    ]
-    for selector in selectors:
+    try:
+        page.goto(
+            profile_url,
+            wait_until="domcontentloaded",
+            timeout=15000
+        )
+
+        page.wait_for_timeout(800)
+
+        selectors = [
+            'header section ul li:nth-child(2) span[title]',
+            'header section ul li:nth-child(2) span',
+            'a[href$="/followers/"] span[title]',
+        ]
+
+        for selector in selectors:
+            try:
+                loc = page.locator(selector).first
+
+                if loc.count() > 0:
+                    title = loc.get_attribute("title")
+                    text = title or loc.inner_text()
+                    value = parse_count(text)
+
+                    if value is not None:
+                        return value
+
+            except Exception:
+                pass
+
         try:
-            loc = page.locator(selector).first
-            if loc.count() > 0:
-                title = loc.get_attribute("title")
-                text = title or loc.inner_text()
-                value = parse_count(text)
-                if value is not None:
-                    return value
+            body = page.locator("body").inner_text(timeout=3000).lower()
+            match = re.search(r"([\\d.,]+[kmb]?)\\s+followers", body)
+
+            if match:
+                return parse_count(match.group(1))
+
         except Exception:
             pass
-    try:
-        body = page.locator("body").inner_text().lower()
-        match = re.search(r"([\d.,]+[kmb]?)\s+followers", body)
-        if match:
-            return parse_count(match.group(1))
-    except Exception:
-        pass
-    return None
+
+        return None
+
+    except Exception as e:
+        raise Exception("Profile load timeout or crash: " + str(e)[:80])
+
+
 def update_followers(sheet_url, worksheet_name):
     ws = get_sheet(sheet_url, worksheet_name)
     rows = ws.get_all_values()
@@ -215,6 +230,8 @@ def update_followers(sheet_url, worksheet_name):
         )
         context = browser.new_context(storage_state=STATE_FILE)
         page = context.new_page()
+        page.set_default_timeout(15000)
+        page.set_default_navigation_timeout(15000)
 
         def block_heavy_resources(route):
             if route.request.resource_type in ["image", "media", "font"]:
@@ -238,6 +255,9 @@ def update_followers(sheet_url, worksheet_name):
                 )
                 context = browser.new_context(storage_state=STATE_FILE)
                 page = context.new_page()
+                page.set_default_timeout(15000)
+                page.set_default_navigation_timeout(15000)
+
             if idx > 1 and idx % 50 == 1:
                 try:
                     browser.close()
@@ -250,6 +270,8 @@ def update_followers(sheet_url, worksheet_name):
                 )
                 context = browser.new_context(storage_state=STATE_FILE)
                 page = context.new_page()
+                page.set_default_timeout(15000)
+                page.set_default_navigation_timeout(15000)
 
             sheet_row = idx + 1
             name = row[0] if len(row) > 0 else ""
