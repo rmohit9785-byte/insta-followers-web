@@ -211,7 +211,7 @@ def update_followers(sheet_url, worksheet_name):
     with sync_playwright() as p:
         browser = p.chromium.launch(
             headless=True,
-            args=["--no-sandbox", "--disable-dev-shm-usage"]
+            args=["--no-sandbox", "--disable-dev-shm-usage", "--disable-gpu", "--single-process"]
         )
         context = browser.new_context(storage_state=STATE_FILE)
         page = context.new_page()
@@ -224,6 +224,16 @@ def update_followers(sheet_url, worksheet_name):
 
         page.route("**/*", block_heavy_resources)
         for idx, row in enumerate(rows[1:], start=1):
+            if idx > 1 and idx % 40 == 1:
+                try:
+                    page.close()
+                    context.close()
+                except Exception:
+                    pass
+
+                context = browser.new_context(storage_state=STATE_FILE)
+                page = context.new_page()
+
             sheet_row = idx + 1
             name = row[0] if len(row) > 0 else ""
             link = row[1] if len(row) > 1 else ""
@@ -253,7 +263,7 @@ def update_followers(sheet_url, worksheet_name):
                 result_box.write(str(idx) + "/" + str(total) + " → " + str(name) + " → " + str(followers))
                 page.wait_for_timeout(random.randint(900, 1600))
             except Exception as e:
-                err = str(e)[:60]
+                err = str(e).replace("\n", " ")[:80]
                 ws.update(f"E{sheet_row}", [[f"Error: {err}"]])
                 time.sleep(1)
                 result_box.write(str(idx) + "/" + str(total) + " → " + str(name) + " → Error: " + str(err))
