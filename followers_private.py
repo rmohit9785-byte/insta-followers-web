@@ -369,7 +369,16 @@ if start_clicked:
         top_result_box = st.empty()
         try:
             top_result_box.info("⏱️ Running... time will appear here")
-            total, minutes, seconds, avg_seconds = update_followers(sheet_url, worksheet_name)
+
+            result = update_followers(sheet_url, worksheet_name)
+
+            if len(result) == 4:
+                total, minutes, seconds, avg_seconds = result
+            else:
+                total, minutes, seconds = result
+                elapsed_total = (minutes * 60) + seconds
+                avg_seconds = elapsed_total / total if total else 0
+
             top_result_box.success(
                 f"✅ Completed {total} rows in {minutes} min {seconds} sec ({avg_seconds:.2f}s/profile)"
             )
