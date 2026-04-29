@@ -366,9 +366,13 @@ if start_clicked:
         st.error("Please paste your Google Sheet URL.")
     else:
         st.subheader("⚡ Updating now...")
+        top_result_box = st.empty()
         try:
-            total, minutes, seconds = update_followers(sheet_url, worksheet_name)
-            st.success(f"✅ Completed {total} rows in {minutes} min {seconds} sec")
+            top_result_box.info("⏱️ Running... time will appear here")
+            total, minutes, seconds, avg_seconds = update_followers(sheet_url, worksheet_name)
+            top_result_box.success(
+                f"✅ Completed {total} rows in {minutes} min {seconds} sec ({avg_seconds:.2f}s/profile)"
+            )
         except Exception as e:
             st.error(f"Error: {e}")
 st.caption("Made with ❤️ by Mohit Rawat | GrowthSheet")
