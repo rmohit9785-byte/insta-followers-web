@@ -307,7 +307,7 @@ def update_followers(sheet_url, worksheet_name):
                 )
                 time.sleep(0.4)
                 result_box.write(str(idx) + "/" + str(total) + " → " + str(name) + " → " + str(followers))
-                page.wait_for_timeout(random.randint(900, 1600))
+                page.wait_for_timeout(random.randint(1200, 1800))
             except Exception as e:
                 err = str(e).replace("\n", " ")[:80]
                 ws.update(f"E{sheet_row}", [[f"Error: {err}"]])
