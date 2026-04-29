@@ -133,20 +133,28 @@ def format_like_instagram(number):
     except Exception:
         return str(number)
 
-    # Match Instagram visible style:
-    # 7,465,051 -> 7,400,000
-    # 8,510,865 -> 8,500,000
-    # 989,703 -> 989,000
-    if number >= 1_000_000:
-        expanded = (number // 100_000) * 100_000
+    # Under 10K Instagram usually shows exact value
+    # 9,780 -> 9,780
+    if number < 10_000:
+        return f"{number:,}"
+
+    # 10K to 99.9K Instagram usually shows 1 decimal K
+    # 27,765 -> 27,700
+    if number < 100_000:
+        expanded = (number // 100) * 100
         return f"{expanded:,}"
 
-    elif number >= 1_000:
+    # 100K to 999K Instagram usually shows whole K
+    # 232,674 -> 232,000
+    if number < 1_000_000:
         expanded = (number // 1_000) * 1_000
         return f"{expanded:,}"
 
-    else:
-        return str(number)
+    # Millions usually show 1 decimal M
+    # 7,465,256 -> 7,400,000
+    # 8,510,865 -> 8,500,000
+    expanded = (number // 100_000) * 100_000
+    return f"{expanded:,}"
 
 
 def parse_count(text):
