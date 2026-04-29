@@ -133,17 +133,16 @@ def format_like_instagram(number):
     except Exception:
         return str(number)
 
-    # Instagram-style expanded format:
-    # 232674 -> 232,000
-    # 8,500,000 -> 8,500,000
+    # Match Instagram visible style:
+    # 7,465,051 -> 7,400,000
+    # 8,510,865 -> 8,500,000
+    # 989,703 -> 989,000
     if number >= 1_000_000:
-        value = round(number / 1_000_000, 1)
-        expanded = int(value * 1_000_000)
+        expanded = (number // 100_000) * 100_000
         return f"{expanded:,}"
 
     elif number >= 1_000:
-        value = int(number / 1_000)
-        expanded = value * 1_000
+        expanded = (number // 1_000) * 1_000
         return f"{expanded:,}"
 
     else:
