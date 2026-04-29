@@ -127,17 +127,25 @@ unsafe_allow_html=True)
 def format_like_instagram(number):
     if number is None:
         return ""
+
     try:
         number = int(number)
     except Exception:
         return str(number)
 
+    # Instagram-style expanded format:
+    # 232674 -> 232,000
+    # 8,500,000 -> 8,500,000
     if number >= 1_000_000:
-        value = round(number / 1_000_000)
-        return f"{value * 1_000_000:,}"
+        value = round(number / 1_000_000, 1)
+        expanded = int(value * 1_000_000)
+        return f"{expanded:,}"
+
     elif number >= 1_000:
-        value = round(number / 1_000)
-        return f"{value * 1_000:,}"
+        value = int(number / 1_000)
+        expanded = value * 1_000
+        return f"{expanded:,}"
+
     else:
         return str(number)
 
