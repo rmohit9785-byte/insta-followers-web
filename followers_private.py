@@ -194,6 +194,40 @@ def get_sheet(sheet_url, worksheet_name):
     gc = gspread.authorize(creds)
     sh = gc.open_by_url(sheet_url)
     return sh.worksheet(worksheet_name)
+def normalize_instagram_url(url):
+    url = str(url).strip()
+
+    if not url:
+        return None
+
+    # If only username is given, convert it to full Instagram URL
+    if "instagram.com" not in url:
+        username = url.strip().strip("@").strip("/")
+        if not username:
+            return None
+        return "https://www.instagram.com/" + username + "/"
+
+    # Fix common broken URL formats
+    url = url.replace("https:/www.", "https://www.")
+    url = url.replace("https:/instagram.com", "https://www.instagram.com")
+    url = url.replace("http:/www.", "https://www.")
+    url = url.replace("http:/instagram.com", "https://www.instagram.com")
+
+    if url.startswith("www.instagram.com"):
+        url = "https://" + url
+
+    if url.startswith("instagram.com"):
+        url = "https://www." + url
+
+    if not url.startswith("http"):
+        return None
+
+    if not url.endswith("/"):
+        url = url + "/"
+
+    return url
+
+
 def fetch_followers(page, profile_url):
     try:
         profile_url = normalize_instagram_url(profile_url)
