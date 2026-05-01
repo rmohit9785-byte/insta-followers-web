@@ -158,19 +158,30 @@ def format_like_instagram(number):
 
 
 def parse_count(text):
-    text = str(text).lower().replace(",", "").strip()
-    match = re.search(r"([\d.]+)\s*([kmb]?)", text)
+    if text is None:
+        return None
+
+    text = str(text).strip().replace(",", "")
+    text = text.replace("\n", " ")
+
+    match = re.search(r"([0-9]+(?:\.[0-9]+)?)\s*([KkMmBb]?)", text)
+
     if not match:
         return None
+
     num = float(match.group(1))
-    suffix = match.group(2)
+    suffix = match.group(2).lower()
+
     if suffix == "k":
         num *= 1000
     elif suffix == "m":
         num *= 1000000
     elif suffix == "b":
         num *= 1000000000
+
     return int(num)
+
+
 def get_sheet(sheet_url, worksheet_name):
     service_json = os.getenv("GOOGLE_SERVICE_ACCOUNT_JSON")
     if not service_json:
@@ -185,18 +196,66 @@ def get_sheet(sheet_url, worksheet_name):
     return sh.worksheet(worksheet_name)
 def fetch_followers(page, profile_url):
     try:
+        profile_url = normalize_instagram_url(profile_url)
+
+        if not profile_url:
+            return None
+
         page.goto(
             profile_url,
             wait_until="domcontentloaded",
-            timeout=15000
+            timeout=30000
         )
 
-        page.wait_for_timeout(800)
+        page.wait_for_timeout(random.randint(2500, 3500))
 
+        # Method 1: visible body text. This matches your debug output:
+        # "8.5M followers"
+        try:
+            body = page.locator("body").inner_text(timeout=8000)
+            body_clean = body.replace("\n", " ")
+
+            match = re.search(
+                r"([0-9]+(?:\.[0-9]+)?\s*[KkMmBb]?|[0-9,]+)\s+followers",
+                body_clean,
+                re.IGNORECASE
+            )
+
+            if match:
+                value = parse_count(match.group(1))
+                if value is not None:
+                    return value
+        except Exception:
+            pass
+
+        # Method 2: meta description
+        try:
+            meta = page.locator('meta[property="og:description"]').first
+
+            if meta.count() > 0:
+                content = meta.get_attribute("content")
+
+                if content:
+                    match = re.search(
+                        r"([0-9]+(?:\.[0-9]+)?\s*[KkMmBb]?|[0-9,]+)\s+Followers",
+                        content,
+                        re.IGNORECASE
+                    )
+
+                    if match:
+                        value = parse_count(match.group(1))
+                        if value is not None:
+                            return value
+        except Exception:
+            pass
+
+        # Method 3: profile selectors
         selectors = [
+            'a[href$="/followers/"] span[title]',
+            'a[href$="/followers/"] span',
             'header section ul li:nth-child(2) span[title]',
             'header section ul li:nth-child(2) span',
-            'a[href$="/followers/"] span[title]',
+            'span[title]'
         ]
 
         for selector in selectors:
@@ -210,24 +269,13 @@ def fetch_followers(page, profile_url):
 
                     if value is not None:
                         return value
-
             except Exception:
                 pass
-
-        try:
-            body = page.locator("body").inner_text(timeout=3000).lower()
-            match = re.search(r"([\\d.,]+[kmb]?)\\s+followers", body)
-
-            if match:
-                return parse_count(match.group(1))
-
-        except Exception:
-            pass
 
         return None
 
     except Exception as e:
-        raise Exception("Profile load timeout or crash: " + str(e)[:80])
+        raise Exception("Profile load timeout or crash: " + str(e).replace("\n", " ")[:100])
 
 
 def update_followers(sheet_url, worksheet_name):
