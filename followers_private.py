@@ -131,30 +131,25 @@ def format_like_instagram(number):
     try:
         number = int(number)
     except Exception:
-        return str(number)
+        return number
 
-    # Under 10K Instagram usually shows exact value
-    # 9,780 -> 9,780
+    # Under 10K keep exact number
     if number < 10_000:
-        return f"{number:,}"
+        return number
 
-    # 10K to 99.9K Instagram usually shows 1 decimal K
+    # 10K to 99.9K -> keep 1 decimal K expanded
     # 27,765 -> 27,700
     if number < 100_000:
-        expanded = (number // 100) * 100
-        return f"{expanded:,}"
+        return (number // 100) * 100
 
-    # 100K to 999K Instagram usually shows whole K
+    # 100K to 999K -> whole K expanded
     # 232,674 -> 232,000
     if number < 1_000_000:
-        expanded = (number // 1_000) * 1_000
-        return f"{expanded:,}"
+        return (number // 1_000) * 1_000
 
-    # Millions usually show 1 decimal M
+    # Millions -> one decimal M expanded
     # 7,465,256 -> 7,400,000
-    # 8,510,865 -> 8,500,000
-    expanded = (number // 100_000) * 100_000
-    return f"{expanded:,}"
+    return (number // 100_000) * 100_000
 
 
 def parse_count(text):
