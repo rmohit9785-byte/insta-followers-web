@@ -16,7 +16,7 @@ st.set_page_config(
 BOT_EMAIL = "update-followers@insta-followers-updater-493919.iam.gserviceaccount.com"
 STATE_FILE = "ig_state.json"
 DATE_FORMAT = "%Y-%m-%d %H:%M:%S"
-ACCESS_CODE = "Rawatji09876"
+ACCESS_CODE = "Growthsheet1234"
 APP_ACTIVE = True
 SCOPES = [
     "https://www.googleapis.com/auth/spreadsheets",
