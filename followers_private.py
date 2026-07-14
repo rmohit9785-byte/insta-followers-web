@@ -233,15 +233,15 @@ def fetch_followers(page, profile_url):
         page.goto(
             profile_url,
             wait_until="domcontentloaded",
-            timeout=18000
+            timeout=12000
         )
 
-        page.wait_for_timeout(random.randint(900, 1400))
+        page.wait_for_timeout(random.randint(300,600))
 
         # Method 1: visible body text. This matches your debug output:
         # "8.5M followers"
         try:
-            body = page.locator("body").inner_text(timeout=3000)
+            body = page.locator("body").inner_text(timeout=1800)
             body_clean = body.replace("\n", " ")
 
             match = re.search(
@@ -373,14 +373,14 @@ def update_followers(sheet_url, worksheet_name):
                 progress_bar.progress(idx / total)
             if not link:
                 ws.update(f"E{sheet_row}", [["No link"]])
-                time.sleep(0.3)
+                time.sleep(0.1)
                 result_box.write(str(idx) + "/" + str(total) + " → " + str(name) + " → No link")
                 continue
             try:
                 followers = fetch_followers(page, link)
                 if followers is None:
                     ws.update(f"E{sheet_row}", [["Could not read"]])
-                    time.sleep(0.3)
+                    time.sleep(0.1)
                     result_box.write(str(idx) + "/" + str(total) + " → " + str(name) + " → Could not read")
                     continue
                 formatted_followers = format_like_instagram(followers)
@@ -390,13 +390,13 @@ def update_followers(sheet_url, worksheet_name):
                     f"C{sheet_row}:E{sheet_row}",
                     [[formatted_followers, now, "Done"]]
                 )
-                time.sleep(0.3)
+                time.sleep(0.1)
                 result_box.write(str(idx) + "/" + str(total) + " → " + str(name) + " → " + str(followers))
-                page.wait_for_timeout(random.randint(900, 1400))
+                page.wait_for_timeout(random.randint(300,600))
             except Exception as e:
                 err = str(e).replace("\n", " ")[:80]
                 ws.update(f"E{sheet_row}", [[f"Error: {err}"]])
-                time.sleep(0.3)
+                time.sleep(0.1)
                 result_box.write(str(idx) + "/" + str(total) + " → " + str(name) + " → Error: " + str(err))
         browser.close()
     elapsed = int(time.time() - start_time)
